@@ -1,12 +1,12 @@
-###My CMEE Coursework Repository for Week1
+### My CMEE Coursework Repository for Week1
 
-##code
+## code
 
-##data
+## data
 
-##result
+## result
 
-##sandbox
+## sandbox
 
-##assignments
+## assignments
 Just ignore it.
