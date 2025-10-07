@@ -1,3 +1,1 @@
-My CMEE Coursework Repository
-I am going to try this new naughty thing on this experimental branch!
-
+Oct.7th,learn about pythonw and write python code
