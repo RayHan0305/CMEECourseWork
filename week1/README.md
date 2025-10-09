@@ -10,6 +10,7 @@ This week's work is focusing on UNIX, Linux, Shell scripting, Git and LATEX. Jus
 7. **MyExampleScript.sh** includes a brief sample of the $USER environmental variable.
 8. **UnixPrac1.txt** is a .txt file with UNIX shell commands for the 'FASTA exercise'.
 9. **.csv** contains the output of **tabtocsv.sh**
+10. **csvtospace.sh** converts csv files into space-separated text files.
 
 ## data
 **407228326.fasta**, **407228412.fasta** and **E.coli.fasta** are files contains DNA sequences.
