@@ -1,2 +1,1 @@
-Oct.7th,learn about pythonw and write python code
-My CMEE Coursework Repository0
+# Welcome To My CMEE Coursework Repository
