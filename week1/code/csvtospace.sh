@@ -15,7 +15,7 @@ fi
 
 # Define input and output filenames
 input="$1"
-output="${input%.csv}_space.txt"
+output="result/${input%.csv}.txt"
 
 # Convert commas to spaces and save to new file
 echo "Converting '$input' to '$output' ..."
