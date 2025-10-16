@@ -27,7 +27,7 @@ for separate in birds:
 print("Latin names (loops):", birds_latin_names_loops)
 print("Common names (loops):", birds_common_names_loops)
 print("Mean body massses (loops):", birds_mean_body_masses_loops)
-print("----------------------------------------------")
+
 
 # A nice example out out is:
 # Step #1:
