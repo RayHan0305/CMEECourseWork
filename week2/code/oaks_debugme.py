@@ -4,7 +4,6 @@ import sys
 #Define function
 def is_an_oak(name):
     """ Returns True if name is starts with 'quercus' """
-    import ipdb; ipdb.set_trace()
     return name.lower().startswith('quercs')
 
 def main(argv): 

@@ -1,10 +1,20 @@
-# Two example sequences to match
-seq2 = "ATCGCCGGATTACGGG"
-seq1 = "CAATTCGGAT"
+import csv
+
+# # Two example sequences to match
+# seq2 = "ATCGCCGGATTACGGG"
+# seq1 = "CAATTCGGAT"
+
+# Read sequences from file
+input = "../data/sequences.csv"
+output = "best_alignment.txt"
+
+with open(input, "r") as f:
+    reader = csv.reader(f)
+    seqs = [line.strip() for line in f if line.strip()]
+seq1, seq2 = seqs[0], seqs[1]
 
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest
-
 l1 = len(seq1)
 l2 = len(seq2)
 if l1 >= l2:
@@ -21,7 +31,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):
-        import ipdb; ipdb.set_trace()
+        #import ipdb; ipdb.set_trace()
         if (i + startpoint) < l1:
             if s1[i + startpoint] == s2[i]: # if the bases match
                 matched = matched + "*"
@@ -48,7 +58,7 @@ my_best_align = None
 my_best_score = -1
 
 for i in range(l1): # Note that you just take the last alignment with the highest score
-    import ipdb; ipdb.set_trace()
+    #import ipdb; ipdb.set_trace()
     z = calculate_score(s1, s2, l1, l2, i)
     if z > my_best_score:
         my_best_align = "." * i + s2 # think about what this is doing!
@@ -56,3 +66,9 @@ for i in range(l1): # Note that you just take the last alignment with the highes
 print(my_best_align)
 print(s1)
 print("Best score:", my_best_score)
+
+# Save results
+with open(output, "w") as f:
+    f.write(f"Best alignment: {my_best_align}\n")
+    f.write(s1 + "\n")
+    f.write(f"Best score: {my_best_score}\n")

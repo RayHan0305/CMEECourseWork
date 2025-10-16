@@ -54,7 +54,7 @@ Same as control_flow.py but used to test the simplest testing toll doctest
 A sample of debugging
 
 18. **align_seqs.py**
-This script aligns two DNA sequences such that they are as similar as possible. And i have inserted a breakpoint at the start of the for loop to examine the script
+This script aligns two DNA sequences such that they are as similar as possible. It can read two DNA sequences from input files and find the best alignment and output it then score to a text file. And i have inserted a breakpoint at the start of the for loop to examine the script.
 
 19. **align_seqs_fasta.py**
 It takes fasta sequences and align them.

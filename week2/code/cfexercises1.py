@@ -35,13 +35,14 @@ def foo_6(x = 10):
         x = x - 1
     return facto
 
-def amin(argv):
+# 
+def main(argv):
     print("foo_1():", foo_1(10))
-    print("foo_2():", foo_2())
-    print("foo_3():", foo_3())
-    print("foo_4():", foo_4())
-    print("foo_5():", foo_5())
-    print("foo_6():", foo_6())
+    print("foo_2():", foo_2(10, 5))
+    print("foo_3():", foo_3(3, 2, 1))
+    print("foo_4():", foo_4(10))
+    print("foo_5():", foo_5(5))
+    print("foo_6():", foo_6(10))
     return 0
 
 if (__name__ == "__main__"):
