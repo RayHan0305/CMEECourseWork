@@ -1,3 +1,0 @@
-Best alignment: seq1 = "CAATTCGGAT"
-seq2 = "ATCGCCGGATTACGGG"
-Best score: 12
