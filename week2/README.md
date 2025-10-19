@@ -3,13 +3,13 @@ This week's work is focusing on Python
 
 ## code 
 1. **loops.py**
-Simple examples of 'FOR loops' and 'WHILE loop'.
+    Simple examples of 'FOR loops' and 'WHILE loop'.
 
 2. **MyExampleScrip.py**
-An example script of Python scripts (x *= x)
+    An example script of Python scripts (x *= x)
 
 3. **cfexercise1.py**
-Several foo_x function. For example, foo_5 is a recursive function that calculates the factorial of x. And it can now take arguments from user and show they work.
+    Several foo_x function. For example, foo_5 is a recursive function that calculates the factorial of x. And it can now take arguments from user and show they work.
 
 4. **cfexercises2.py**
 More examples of loops and conditionals combined.

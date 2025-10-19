@@ -9,7 +9,7 @@
 
 # Check if there is a file provided
 if [ -z "$1"]; then
-    echo "Error: Please provide an input file."
+    echo "Please provide an input file."
     exit 1
 fi
 # Check if the input file exists
