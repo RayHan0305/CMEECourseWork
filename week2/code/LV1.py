@@ -2,10 +2,13 @@ import scipy.integrate as integrate
 import numpy as np
 import matplotlib.pylab as p
 
+# A curve
 y = np.array([5, 20, 18, 19, 18, 7, 4]) # The y values; can also use a python list here
-y1 = p.plot(y)
+y1 = p.figure()
+p.plot(y)
 f1 = p.figure()
 
+# Consumer-Resource population dynamics
 def dCR_dt(pops, t=0):
 
     R = pops[0]
@@ -37,9 +40,28 @@ p.ylabel('Population density')
 p.title('Consumer-Resource population dynamics')
 p.show()# To display the figure
 
+# Practicals
+# Set radius and cneter first and then set angles
+f2 = p.figure()
+a= 20
+b = 10
+center = (25, 15)
+theta = np.linspace(0, 2*np.pi, 400)
+x2 = center[0] + a * np.cos(theta)
+y2 = center[1] + b * np.sin(theta)
+
+p.plot(x2, y2, 'r-')
+p.grid()
+p.xlabel('Resource density')
+p.ylabel('Consumer density')
+p.title('Consumer-Resource population dynamics')
+p.show()
+
+
 # Save figure
 y1.savefig('../results/y1_figure.pdf')
 f1.savefig('../results/LV_model.pdf')
+f2.savefig('../results/Practicals_figure.pdf')
 
 
 

@@ -4,7 +4,8 @@ import sys
 #Define function
 def is_an_oak(name):
     """ Returns True if name is starts with 'quercus' """
-    return name.lower().startswith('quercs')
+    # import ipdb; ipdb.set_trace()
+    return name.lower().startswith('quercus')
 
 def main(argv): 
     f = open('../data/TestOaksData.csv','r')

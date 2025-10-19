@@ -64,6 +64,7 @@ Not written yet
 
 21. **oaks_debugme.py**   
 Fixing a missing oaks problem by using doctests and debugging breakpoint.
+The bug is that the 'quercs' is missing the letter "u" !
 
 22. **LV1.py**  
 Script that used to test numpy and generating figures.
@@ -72,8 +73,26 @@ Script that used to test numpy and generating figures.
 
 
 ## data
+1. **fasta files**  
+Those fasta files are used for the practicals in DNA sequences.
+
+2. **testcsv.csv**  
+The input file of align_seq.py, including two row of sequences.
+
+3. **bodymass.csv**  
+Data about species and their body mass (kg)
+
+4. **TestOaksData.csv**  
+Genus and species for Oaks
+
+5. **JustOakData.csv**  
+Write oak data (Only Quercus)
 
 ## results 
+1. **best_alignment.txt**  
+Output of _alignseqs.py_
 
+2. **LV_model.pdf, y1_figure.pdf, Practicals_figure.pdf**  
+Output of _LV1.py_
 
 

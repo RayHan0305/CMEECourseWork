@@ -13,9 +13,16 @@
 TreeHeight <- function(degrees, distance) {
     radians <- degrees * pi / 180
     height <- distance * tan(radians)
-    print(paste("Tree height is:", height))
-  
+    
     return (height)
 }
 
-TreeHeight(37, 40)
+TreeData <- read.csv("../data/trees.csv")
+
+TreeData$Tree.Height.m <- TreeHeight(TreeData$Angle.degrees, TreeData$Distance.m)
+
+print(head(TreeData))
+
+write.csv(TreeData, "../results/TreeHits.csv", row.names=TRUE)
+
+cat("Tree heights have successfully calculated and saved!")
