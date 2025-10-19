@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if the files are provided.
-if ls *.tif; then
+if compgen -G "*.tif" > /dev/null; then
     for f in *.tif; 
         do  
             echo "Converting $f"; 
