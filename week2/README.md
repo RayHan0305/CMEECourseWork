@@ -69,6 +69,9 @@ The bug is that the 'quercs' is missing the letter "u" !
 22. **LV1.py**  
 Script that used to test numpy and generating figures.
 
+23. **test.py**  
+Used to test my script to see an expected result.
+
 
 
 
