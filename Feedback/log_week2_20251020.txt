@@ -1,0 +1,1747 @@
+======================================================================
+AUTOMATED FEEDBACK LOG
+======================================================================
+
+HOW TO READ THIS FEEDBACK:
+--------------------------
+1. This log contains detailed feedback on your code execution
+2. Each script is tested and results are shown with output and errors
+3. IMPORTANT: Read all the way to the END for a summary and debugging guidance
+4. The summary at the end will help you understand and fix any issues
+5. Scripts are run in a headless environment (no GUI applications)
+
+======================================================================
+
+Starting testing for Ruixuan Han
+
+Processing week 2
+
+Your current Git repo size is about 2.05 MiB on disk
+
+Found directories: .git, week1, week2, Feedback, week3
+Found files: .gitignore, README.md, list.txt
+
+Processing week 2: week2
+
+Found 27 code files to test.
+
+Note: Expected file checking not performed (no FileList provided).
+Expected file checking will only be performed during final assessment.
+
+======================================================================
+Script: MyExampleScript.py
+
+Contents:
+
+**********
+def foo(x):
+    x = x*x
+    print(x)
+
+foo(2)
+
+# Using the UNIX shell: python3 MyExampleScript.py
+# From the UNIX shell, using ipython: ipython3 MyExampleScript.py
+# From within the ipython shell: %run MyExampleScript.py
+
+**********
+
+Output (first 500 chars):
+
+**********
+4
+
+**********
+No errors.
+======================================================================
+Script: lc2.py
+
+Contents:
+
+**********
+# Average UK Rainfall (mm) for 1910 by month
+# http://www.metoffice.gov.uk/climate/uk/datasets
+rainfall = (('JAN',111.4),
+            ('FEB',126.1),
+            ('MAR', 49.9),
+            ('APR', 95.3),
+            ('MAY', 71.8),
+            ('JUN', 70.2),
+            ('JUL', 97.1),
+            ('AUG',140.2),
+            ('SEP', 27.0),
+            ('OCT', 89.4),
+            ('NOV',128.4),
+            ('DEC',142.2),
+           )
+
+# (1) Use a list comprehension to create a list of month,rainfall tuples where
+# the amount of rain was greater than 100 mm.
+rain_100 = [(month, rain_amount) for (month, rain_amount) in rainfall if rain_amount > 100]
+print("Months and rainfall values when the amount of rain was greater than 100 mm:", rain_100)
+print("---------------------------------")
+
+# (2) Use a list comprehension to create a list of just month names where the
+# amount of rain was less than 50 mm. 
+rain_50 = [month for (month, rain_amount) in rainfall if rain_amount < 50]
+print("Months values when the amount of rain was less than 50 mm:", rain_50)
+print("---------------------------------")
+# (3) Now do (1) and (2) using conventional loops (you can choose to do 
+# this before 1 and 2 !). 
+rain_100_loops = []
+rain_50_loops = []
+for month, rain_amount in rainfall:
+    if rain_amount > 100:
+        rain_100_loops.append((month,rain_amount))
+    elif rain_amount < 50:
+        rain_50_loops.append(month)
+print("Months and rainfall values when the amount of rain was greater than 100 mm:", rain_100_loops,
+      "Months values when the amount of rain was less than 50 mm:", rain_50_loops)
+
+# A good example output is:
+#
+# Step #1:
+# Months and rainfall values when the amount of rain was greater than 100mm:
+# [('JAN', 111.4), ('FEB', 126.1), ('AUG', 140.2), ('NOV', 128.4), ('DEC', 142.2)]
+# ... etc.
+
+
+**********
+
+Output (first 500 chars):
+
+**********
+Months and rainfall values when the amount of rain was greater than 100 mm: [('JAN', 111.4), ('FEB', 126.1), ('AUG', 140.2), ('NOV', 128.4), ('DEC', 142.2)]
+---------------------------------
+Months values when the amount of rain was less than 50 mm: ['MAR', 'SEP']
+---------------------------------
+Months and rainfall values when the amount of rain was greater than 100 mm: [('JAN', 111.4), ('FEB', 126.1), ('AUG', 140.2), ('NOV', 128.4), ('DEC', 142.2)] Months values when the amount of rain was le
+**********
+No errors.
+======================================================================
+Script: test.py
+
+Contents:
+
+**********
+import numpy as np
+
+a = np.array(range(5), float)
+
+print(type(a))
+print(type(a[0]))
+print(a.dtype) # CHeck type
+
+x = np.arange(5.)
+print(x)
+
+b = np.array([i for i in range(10) if i % 2 == 1]) #odd numbers between 1 and 10
+print(b)
+
+# covert back to list
+c = b.tolist()
+print(c)
+
+mat = np.array([[0, 1], [2, 3]])
+print(mat)
+print(mat.shape)
+# accessing whole 2nd row, remember indexing starts at 0
+print(mat[1])
+# accessing whole second column
+print(mat[:,1])
+# 1st row, 1st column element
+print(mat[0,0])
+# 2nd row, 1st column element
+print(mat[1,0])
+# accessing whole first column
+print(mat[:,0])
+# 1st row, 2nd column element
+print(mat[0,1])
+#
+print(mat[0,-1])
+**********
+
+Output (first 500 chars):
+
+**********
+<class 'numpy.ndarray'>
+<class 'numpy.float64'>
+float64
+[0. 1. 2. 3. 4.]
+[1 3 5 7 9]
+[1, 3, 5, 7, 9]
+[[0 1]
+ [2 3]]
+(2, 2)
+[2 3]
+[1 3]
+0
+2
+[0 2]
+1
+1
+
+**********
+No errors.
+======================================================================
+Script: oaks.py
+
+Contents:
+
+**********
+
+
+
+## Finds just those taxa that are oak trees from a list of species
+
+taxa = [ 'Quercus robur',
+         'Fraxinus excelsior',
+         'Pinus sylvestris',
+         'Quercus cerris',
+         'Quercus petraea',
+       ]
+
+def is_an_oak(name):
+    return name.lower().startswith('quercus ')
+
+##Using for loops
+oaks_loops = set()
+for species in taxa:
+    if is_an_oak(species):
+        oaks_loops.add(species)
+print(oaks_loops)
+
+##Using list comprehensions   
+oaks_lc = set([species for species in taxa if is_an_oak(species)])
+print(oaks_lc)
+
+##Get names in UPPER CASE using for loops
+oaks_loops = set()
+for species in taxa:
+    if is_an_oak(species):
+        oaks_loops.add(species.upper())
+print(oaks_loops)
+
+##Get names in UPPER CASE using list comprehensions
+oaks_lc = set([species.upper() for species in taxa if is_an_oak(species)])
+print(oaks_lc)
+
+
+**********
+
+Output (first 500 chars):
+
+**********
+{'Quercus petraea', 'Quercus cerris', 'Quercus robur'}
+{'Quercus petraea', 'Quercus cerris', 'Quercus robur'}
+{'QUERCUS PETRAEA', 'QUERCUS ROBUR', 'QUERCUS CERRIS'}
+{'QUERCUS PETRAEA', 'QUERCUS ROBUR', 'QUERCUS CERRIS'}
+
+**********
+No errors.
+======================================================================
+Script: dictionary.py
+
+Contents:
+
+**********
+taxa = [ ('Myotis lucifugus','Chiroptera'),
+         ('Gerbillus henleyi','Rodentia',),
+         ('Peromyscus crinitus', 'Rodentia'),
+         ('Mus domesticus', 'Rodentia'),
+         ('Cleithrionomys rutilus', 'Rodentia'),
+         ('Microgale dobsoni', 'Afrosoricida'),
+         ('Microgale talazaci', 'Afrosoricida'),
+         ('Lyacon pictus', 'Carnivora'),
+         ('Arctocephalus gazella', 'Carnivora'),
+         ('Canis lupus', 'Carnivora'),
+        ]
+
+# Write a python script to populate a dictionary called taxa_dic derived from
+# taxa so that it maps order names to sets of taxa and prints it to screen.
+# 
+# An example output is:
+#  
+# 'Chiroptera' : set(['Myotis lucifugus']) ... etc. 
+# OR, 
+# 'Chiroptera': {'Myotis  lucifugus'} ... etc
+
+taxa_dic = {}
+
+for species, order in taxa:
+    if order not in taxa_dic:
+        taxa_dic[order] = set()
+    taxa_dic[order].add(species)
+print(taxa_dic)
+print("--------------------------------")
+# Now write a list comprehension that does the same (including the printing after the dictionary has been created)  
+ 
+#### Your solution here #### 
+
+taxa_dic_lc = {
+    order: {species for species, o in taxa if o == order}
+    for order in {o for _, o in taxa}
+}
+
+print(taxa_dic_lc)
+
+
+**********
+
+Output (first 500 chars):
+
+**********
+{'Chiroptera': {'Myotis lucifugus'}, 'Rodentia': {'Peromyscus crinitus', 'Gerbillus henleyi', 'Mus domesticus', 'Cleithrionomys rutilus'}, 'Afrosoricida': {'Microgale dobsoni', 'Microgale talazaci'}, 'Carnivora': {'Canis lupus', 'Lyacon pictus', 'Arctocephalus gazella'}}
+--------------------------------
+{'Rodentia': {'Peromyscus crinitus', 'Gerbillus henleyi', 'Mus domesticus', 'Cleithrionomys rutilus'}, 'Carnivora': {'Canis lupus', 'Lyacon pictus', 'Arctocephalus gazella'}, 'Afrosoricida': {'Mi
+**********
+No errors.
+======================================================================
+Script: cfexercises2.py
+
+Contents:
+
+**********
+##################
+
+def hello_1(x):
+    for j in range(x):
+        if j % 3 == 0:
+            print('Hello')
+        print(' ')
+
+hello_1(12)
+
+###################
+
+def hello_2(x):
+    for j in range(x):
+        if j % 5 == 3:
+            print('Hello_21')
+        elif j % 4 == 3:
+            print('Hello_22')
+        print(' ')
+
+hello_2(12)
+
+###################
+
+def hello_3(x, y):
+    for i in range(x, y):
+        print('Hello_3')
+    print(' ')
+
+hello_3(3, 17)
+
+###################
+
+def hello_4(x):
+    while x != 15:
+        print('Hello_4')
+        x = x + 3
+    print(' ')
+
+hello_4(0)
+
+###################
+
+def hello_5(x):
+    while x <100:
+        if x == 31:
+            for k in range(7):
+                print('Hello_51')
+        elif x ==18:
+            print('Hello_52')
+        x = x + 1
+    print(' ')
+
+hello_5(12)
+
+# While loop with RREAK
+
+def hello_6(x, y):
+    while x: #while x is True
+        print("Hello_6! " + str(y))
+        y += 1 #increment y by 1
+        if y == 6:
+            break
+    print(' ')
+
+hello_6(True, 0)
+
+###################
+
+x = [i for i in range(10)]
+print(x)
+
+###################
+
+x = []
+for i in range(10):
+    x.append(i)
+print(x)
+
+###################
+
+x = [i.lower() for i in ["LIST","COMPREHENSIONS","ARE","COOL"]]
+print(x)
+
+###################
+
+x = ["LIST","COMPREHENSIONS","ARE","COOL"]
+for i in range(len(x)): # explicit loop
+    x[i] = x[i].lower()
+print(x)
+
+###################
+
+x =["LIST","COMPREHENSIONS","ARE","COOL"]
+x_new = []
+for i in x: # implicit loop
+    x_new.append(i.lower())
+print(x_new)
+
+###################
+
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+flattened_matrix = []
+for row in matrix:
+    for n in row:
+        flattened_matrix.append(n)
+print(flattened_matrix)
+
+###################
+
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+flattened_matrix = [n for row in matrix for n in row]
+print(flattened_matrix)
+
+###################
+
+words = ["These", "are", "some", "words"]
+
+first_letters = set()
+for w in words:
+    first_letters.add(w[0])
+
+print(first_letters)
+
+type(first_letters)
+
+###################
+
+words = ["These", "are", "some", "words"]
+
+first_letters = {w[0] for w in words} # note the curly brackets
+
+print(first_letters)
+
+type(first_letters)
+
+###################
+**********
+
+Output (first 500 chars):
+
+**********
+Hello
+ 
+ 
+ 
+Hello
+ 
+ 
+ 
+Hello
+ 
+ 
+ 
+Hello
+ 
+ 
+ 
+ 
+ 
+ 
+Hello_21
+ 
+ 
+ 
+ 
+Hello_22
+ 
+Hello_21
+ 
+ 
+ 
+Hello_22
+ 
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+Hello_3
+ 
+Hello_4
+Hello_4
+Hello_4
+Hello_4
+Hello_4
+ 
+Hello_52
+Hello_51
+Hello_51
+Hello_51
+Hello_51
+Hello_51
+Hello_51
+Hello_51
+ 
+Hello_6! 0
+Hello_6! 1
+Hello_6! 2
+Hello_6! 3
+Hello_6! 4
+Hello_6! 5
+ 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+['list', 'comprehensions', 'are'
+**********
+No errors.
+======================================================================
+Script: using_name.py
+
+Contents:
+
+**********
+# !/usr/bin/env python3
+# Filename: using_name.py
+
+if __name__ == '__main__':
+    print('This program is being run by itself!')
+else:
+    print('I am being imported from another script/program/module!')
+print("THis module's name is:" + __name__)
+**********
+
+Output (first 500 chars):
+
+**********
+This program is being run by itself!
+THis module's name is:__main__
+
+**********
+No errors.
+======================================================================
+Script: basic_io3.py
+
+Contents:
+
+**********
+######################
+# STORING OBJECTS
+######################
+# To save an object (even complex) for later use
+my_dictionary = {"a key": 10, "another key": 11}
+import pickle
+
+f = open('../sandbox/testp.p','wb') ## note the b: accept binary files
+pickle.dump(my_dictionary, f)
+f.close()
+
+## Load the data again
+f = open('../sandbox/testp.p','rb')
+another_dictionary = pickle.load(f)
+f.close()
+
+print(another_dictionary)
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+Errors:
+**********
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2025-26/Coursework/StudentRepos/RuixuanHan_rh925/week2/code/basic_io3.py", line 8, in <module>
+    f = open('../sandbox/testp.p','wb') ## note the b: accept binary files
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../sandbox/testp.p'
+
+**********
+======================================================================
+Script: scope.py
+
+Contents:
+
+**********
+_a_global = 10
+
+def a_function():
+    _a_local = 4
+
+    print("Inside the function, the value _a_local is", _a_local)
+    print("Inside the function, the value of _a_globl is", _a_global)
+
+a_function()
+
+print("OUtside the function, the vaue of _a_global is", _a_global)
+print("############################")
+############################
+
+a_global = 10
+
+print("Before calling a_function, outside the function, the value of _a_global is", _a_global)
+
+def a_function():
+    global _a_global
+    _a_global = 5
+    _a_local = 4
+
+    print("Inside the function, the value of _a_global is", _a_global)
+    print("INside the function, the value _a_local is", _a_local)
+
+a_function()
+
+print("After calling a_function, outside the function, the value of _a_global now is", _a_global)
+print("############################")
+############################
+
+def a_function():
+    _a_global = 10
+
+    def _a_function2():
+        global _a_global
+        _a_global = 20
+    
+    print("Before calling a_function2, value of _a_global is", _a_global)
+
+    _a_function2()
+    
+    print("After calling a_function2, value of _a_global is", _a_global)
+    
+a_function()
+
+print("The value of a_global in main workspace / namespace now is", _a_global)
+
+print("############################")
+############################
+
+_a_global = 10
+
+def a_function():
+
+    def _a_function2():
+        global _a_global
+        _a_global = 20
+    
+    print("Before calling a_function2, value of _a_global is", _a_global)
+
+    _a_function2()
+    
+    print("After calling a_function2, value of _a_global is", _a_global)
+
+a_function()
+
+print("The value of a_global in main workspace / namespace is", _a_global)
+**********
+
+Output (first 500 chars):
+
+**********
+Inside the function, the value _a_local is 4
+Inside the function, the value of _a_globl is 10
+OUtside the function, the vaue of _a_global is 10
+############################
+Before calling a_function, outside the function, the value of _a_global is 10
+Inside the function, the value of _a_global is 5
+INside the function, the value _a_local is 4
+After calling a_function, outside the function, the value of _a_global now is 5
+############################
+Before calling a_function2, value of _a_global
+**********
+No errors.
+======================================================================
+Script: config.py
+
+Contents:
+
+**********
+
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+No errors.
+======================================================================
+Script: basic_io1.py
+
+Contents:
+
+**********
+#######################
+# FILE INPUT
+#######################
+# Open a file for reading
+f = open('../sandbox/test.txt', 'r')
+# yse "implicit" for loop:
+# if the object is a file, python will cycle over lines
+for line in f:
+    print(line)
+
+# close the file
+f.close()
+
+# Same example, skip blank lines
+f = open('../sandbox/test.txt', 'r')
+for line in f:
+    if len(line.strip()) > 0:
+        print(line)
+
+f.close
+
+#################
+
+with open('../sandbox/test.txt', 'r') as f:
+    for line in f:
+        print(line)
+
+# Once you frop out of the with, the file is automatically closed
+
+# Same example, skip blank lines
+with open('../sandbox/test.txt', 'r') as f:
+    for line in f:
+        if len(line.strip()) > 0:
+            print(line)
+
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+Errors:
+**********
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2025-26/Coursework/StudentRepos/RuixuanHan_rh925/week2/code/basic_io1.py", line 5, in <module>
+    f = open('../sandbox/test.txt', 'r')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../sandbox/test.txt'
+
+**********
+======================================================================
+Script: align_seqs_better.py
+
+Contents:
+
+**********
+
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+No errors.
+======================================================================
+Script: cfexercises1.py
+
+Contents:
+
+**********
+import sys
+
+def foo_1(x = 10):
+    return x ** 0.5
+
+def foo_2(x = 10, y = 5):
+    if x > y:
+        return x
+    return y
+
+def foo_3(x = 3, y = 2, z = 1):
+    if x > y:
+        x, y = y, x
+    if x > z:
+        x, z = z, x
+    if y > z:
+        y, z = z, y
+    return [x, y, z]
+
+def foo_4(x = 10):
+    result = 1
+    for i in range(1, x + 1):
+        result = result * i
+    return result
+
+def foo_5(x = 5):
+    if x == 1:
+        return 1
+    return x * foo_5(x - 1)
+
+def foo_6(x = 10):
+    facto = 1
+    while x >= 1:
+        facto = facto * x
+        x = x - 1
+    return facto
+
+# 
+def main(argv):
+    print("foo_1():", foo_1(10))
+    print("foo_2():", foo_2(10, 5))
+    print("foo_3():", foo_3(3, 2, 1))
+    print("foo_4():", foo_4(10))
+    print("foo_5():", foo_5(5))
+    print("foo_6():", foo_6(10))
+    return 0
+
+if (__name__ == "__main__"):
+    status = amin(sys.argv)
+    sys.exit(status)
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+Errors:
+**********
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2025-26/Coursework/StudentRepos/RuixuanHan_rh925/week2/code/cfexercises1.py", line 49, in <module>
+    status = amin(sys.argv)
+             ^^^^
+NameError: name 'amin' is not defined. Did you mean: 'min'?
+
+**********
+======================================================================
+Script: debugme.py
+
+Contents:
+
+**********
+# def buggyfunc(x):
+#     y = x
+#     for i in range(x):
+#         try: 
+#             y = y-1
+#             z = x/y
+#         except:
+#             print(f"This didn't work;{x = }; {y = }")
+#     return z
+
+# buggyfunc(20)
+
+
+#####################
+
+def buggyfunc(x):
+    y = x
+    for i in range(x):
+        try: 
+            y = y-1
+            z = x/y
+        except ZeroDivisionError:
+            print(f"The result of dividing a number by zero is undefined")
+        except:
+            print(f"This didn't work;{x = }; {y = }")
+        else:
+            print(f"OK; {x = }; {y = }, {z = };")
+    return z
+
+buggyfunc(20)
+**********
+
+Output (first 500 chars):
+
+**********
+OK; x = 20; y = 19, z = 1.0526315789473684;
+OK; x = 20; y = 18, z = 1.1111111111111112;
+OK; x = 20; y = 17, z = 1.1764705882352942;
+OK; x = 20; y = 16, z = 1.25;
+OK; x = 20; y = 15, z = 1.3333333333333333;
+OK; x = 20; y = 14, z = 1.4285714285714286;
+OK; x = 20; y = 13, z = 1.5384615384615385;
+OK; x = 20; y = 12, z = 1.6666666666666667;
+OK; x = 20; y = 11, z = 1.8181818181818181;
+OK; x = 20; y = 10, z = 2.0;
+OK; x = 20; y = 9, z = 2.2222222222222223;
+OK; x = 20; y = 8, z = 2.5;
+OK; x = 20; y = 7,
+**********
+No errors.
+======================================================================
+Script: boilerplate.py
+
+Contents:
+
+**********
+#!/usr/bin/env python3
+
+"""Description of this program or application.
+You can use several lines"""
+
+__appname__ = '[application name here]'
+__author__ = 'Your Name (your@email.address)'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+## imports ##
+import sys # module to interface our program with the operating system
+
+## constants ##
+
+
+## functions ##
+def main(argv):
+    """ Main entry point of the program """
+    print('This is a boilerplate') # NOTE: indented using two tabs or 4 spaces
+    return 0
+
+if __name__ == "__main__": 
+    """Makes sure the "main" function is called from command line"""  
+    status = main(sys.argv)
+    sys.exit(status)
+**********
+
+Output (first 500 chars):
+
+**********
+This is a boilerplate
+
+**********
+No errors.
+======================================================================
+Script: basic_io2.py
+
+Contents:
+
+**********
+#################
+# FILE OUTPUT
+#################
+
+# Save the elements of a list to a file
+list_to_save = range(100)
+
+f = open('../sandbox/testout.txt', 'w')
+for i in list_to_save:
+    f.write(str(i) + '\n') ## Add a new line at the end
+
+f.close()
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+Errors:
+**********
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2025-26/Coursework/StudentRepos/RuixuanHan_rh925/week2/code/basic_io2.py", line 8, in <module>
+    f = open('../sandbox/testout.txt', 'w')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../sandbox/testout.txt'
+
+**********
+======================================================================
+Script: control_flow.py
+
+Contents:
+
+**********
+#!/usr/bin/env python3
+
+"""Some functions exemplifying the use of control statements"""
+#docstrings are considered part of the running code (normal comments are
+#stripped). Hence, you can access your docstrings at run time.
+__author__ = 'Samraat Pawar (s.pawar@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+import sys
+
+def even_or_odd(x=0): # if not specified, x should take value 0.
+
+    """Find whether a number x is even or odd."""
+    if x % 2 == 0: #The conditional if
+        return f"{x} is Even!"
+    return f"{x} is Odd!"
+
+def largest_divisor_five(x=120):
+    """Find which is the largest divisor of x among 2,3,4,5."""
+    largest = 0
+    if x % 5 == 0:
+        largest = 5
+    elif x % 4 == 0: #means "else, if"
+        largest = 4
+    elif x % 3 == 0:
+        largest = 3
+    elif x % 2 == 0:
+        largest = 2
+    else: # When all other (if, elif) conditions are not met
+        return f"No divisor found for {x}!" # Each function can return a value or a variable.
+    return f"The largest divisor of {x} is {largest}"
+
+def is_prime(x=70):
+    """Find whether an integer is prime."""
+    for i in range(2, x): #  "range" returns a sequence of integers
+        if x % i == 0:
+            print(f"{x} is not a prime: {i} is a divisor") 
+            return False
+    print(f"{x} is a prime!")
+    return True 
+
+def find_all_primes(x=22):
+    """Find all the primes up to x"""
+    allprimes = []
+    for i in range(2, x + 1):
+        if is_prime(i):
+            allprimes.append(i)
+    print(f"There are {len(allprimes)} primes between 2 and {x}")
+    return allprimes
+      
+def main(argv):
+    print(even_or_odd(22))
+    print(even_or_odd(33))
+    print(largest_divisor_five(120))
+    print(largest_divisor_five(121))
+    print(is_prime(60))
+    print(is_prime(59))
+    print(find_all_primes(100))
+    return 0
+
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+    sys.exit(status)
+**********
+
+Output (first 500 chars):
+
+**********
+22 is Even!
+33 is Odd!
+The largest divisor of 120 is 5
+No divisor found for 121!
+60 is not a prime: 2 is a divisor
+False
+59 is a prime!
+True
+2 is a prime!
+3 is a prime!
+4 is not a prime: 2 is a divisor
+5 is a prime!
+6 is not a prime: 2 is a divisor
+7 is a prime!
+8 is not a prime: 2 is a divisor
+9 is not a prime: 3 is a divisor
+10 is not a prime: 2 is a divisor
+11 is a prime!
+12 is not a prime: 2 is a divisor
+13 is a prime!
+14 is not a prime: 2 is a divisor
+15 is not a prime: 3 is a divisor
+16 is
+**********
+No errors.
+======================================================================
+Script: align_seqs_fasta.py
+
+Contents:
+
+**********
+import sys
+
+def read_fasta(filename):
+    # Read fasta file
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+        seq = "".join([line.strip() for line in lines if not line.startswith(">")])
+    return seq
+
+def calculate_score(s1, s2, l1, l2, startpoint):
+    # Calculate the score
+    score = 0
+    for i in range(l2):
+        if (i + startpoint) < l1:
+            if s1[i + startpoint] == s2[i]:
+                score += 1
+    return score
+
+def main(argv):
+    if len(argv) != 3:
+        sys.exit(1)
+
+    seq1_file = argv[1]
+    seq2_file = argv[2]
+
+    # Read the seq
+    seq1 = read_fasta(seq1_file)
+    seq2 = read_fasta(seq2_file)
+
+    # Compare
+    l1, l2 = len(seq1), len(seq2)
+    if l1 >= l2:
+        s1, s2 = seq1, seq2
+    else:
+        s1, s2 = seq2, seq1
+        l1, l2 = l2, l1
+
+    # Compare the calculation
+    my_best_align = None
+    my_best_score = -1
+
+    for i in range(l1):
+        z = calculate_score(s1, s2, l1, l2, i)
+        if z > my_best_score:
+            my_best_align = "." * i + s2
+            my_best_score = z
+
+    print("The best align：")
+    print(my_best_align)
+    print(s1)
+    print("The best score:", my_best_score)
+
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
+
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+No errors.
+======================================================================
+Script: lc1.py
+
+Contents:
+
+**********
+birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
+          ('Delichon urbica','House martin',19),
+          ('Junco phaeonotus','Yellow-eyed junco',19.5),
+          ('Junco hyemalis','Dark-eyed junco',19.6),
+          ('Tachycineata bicolor','Tree swallow',20.2),
+         )
+
+#(1) Write three separate list comprehensions that create three different
+# lists containing the latin names, common names and mean body masses for
+# each species in birds, respectively. 
+birds_latin_names = set([separate[0] for separate in birds])
+birds_common_names = set([separate[1] for separate in birds])
+birds_mean_body_masses = set([separate[2] for separate in birds])
+print("Latin names:", birds_latin_names)
+print("Common names:", birds_common_names)
+print("Mean body massses:", birds_mean_body_masses)
+print("----------------------------------------------")
+# (2) Now do the same using conventional loops (you can choose to do this 
+# before 1 !). 
+birds_latin_names_loops = set()
+birds_common_names_loops = set()
+birds_mean_body_masses_loops = set()
+for separate in birds:
+    birds_latin_names_loops.add(separate[0])
+    birds_common_names_loops.add(separate[1])
+    birds_mean_body_masses_loops.add(separate[2])
+print("Latin names (loops):", birds_latin_names_loops)
+print("Common names (loops):", birds_common_names_loops)
+print("Mean body massses (loops):", birds_mean_body_masses_loops)
+
+
+# A nice example out out is:
+# Step #1:
+# Latin names:
+# ['Passerculus sandwichensis', 'Delichon urbica', 'Junco phaeonotus', 'Junco hyemalis', 'Tachycineata bicolor']
+# ... etc.
+ 
+**********
+
+Output (first 500 chars):
+
+**********
+Latin names: {'Junco phaeonotus', 'Junco hyemalis', 'Passerculus sandwichensis', 'Delichon urbica', 'Tachycineata bicolor'}
+Common names: {'Tree swallow', 'House martin', 'Dark-eyed junco', 'Savannah sparrow', 'Yellow-eyed junco'}
+Mean body massses: {18.7, 19.5, 19.6, 19, 20.2}
+----------------------------------------------
+Latin names (loops): {'Junco phaeonotus', 'Junco hyemalis', 'Passerculus sandwichensis', 'Delichon urbica', 'Tachycineata bicolor'}
+Common names (loops): {'Tree swallow', 'Ho
+**********
+No errors.
+======================================================================
+Script: sysargv.py
+
+Contents:
+
+**********
+#!/usr/bin/env python3
+
+import sys
+print("This is the name of the script:", sys.argv[0])
+print("Number of arguments:", len(sys.argv))
+print("The arguments are: ", str(sys.argv))
+**********
+
+Output (first 500 chars):
+
+**********
+This is the name of the script: sysargv.py
+Number of arguments: 1
+The arguments are:  ['sysargv.py']
+
+**********
+No errors.
+======================================================================
+Script: oaks_debugme.py
+
+Contents:
+
+**********
+import csv
+import sys
+
+#Define function
+def is_an_oak(name):
+    """ Returns True if name is starts with 'quercus' """
+    # import ipdb; ipdb.set_trace()
+    return name.lower().startswith('quercus')
+
+def main(argv): 
+    f = open('../data/TestOaksData.csv','r')
+    g = open('../data/JustOaksData.csv','w')
+    taxa = csv.reader(f)
+    csvwrite = csv.writer(g)
+    oaks = set()
+    for row in taxa:
+        print(row)
+        print ("The genus is: ") 
+        print(row[0] + '\n')
+        if is_an_oak(row[0]):
+            print('FOUND AN OAK!\n')
+            csvwrite.writerow([row[0], row[1]])    
+
+    return 0
+    
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+**********
+
+Output (first 500 chars):
+
+**********
+['Genus', ' species']
+The genus is: 
+Genus
+
+['Quercus', ' robur']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Fraxinus', ' excelsior']
+The genus is: 
+Fraxinus
+
+['Pinus', ' sylvestris']
+The genus is: 
+Pinus
+
+['Quercus', ' cerris']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+['Quercus', ' petraea']
+The genus is: 
+Quercus
+
+FOUND AN OAK!
+
+
+**********
+No errors.
+======================================================================
+Script: tuple.py
+
+Contents:
+
+**********
+birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
+          ('Delichon urbica','House martin',19),
+          ('Junco phaeonotus','Yellow-eyed junco',19.5),
+          ('Junco hyemalis','Dark-eyed junco',19.6),
+          ('Tachycineata bicolor','Tree swallow',20.2),
+        )
+
+# Birds is a tuple of tuples of length three: latin name, common name, mass.
+# write a (short) script to print these on a separate line or output block by
+# species 
+for latin_name, common_name, mass in birds:
+    print("Latin name:", latin_name)
+    print("Common name:", common_name)
+    print("Mass:", mass)
+
+# A nice example output is:
+# 
+# Latin name: Passerculus sandwichensis Common name: Savannah sparrow Mass: 18.7
+# ... etc.
+**********
+
+Output (first 500 chars):
+
+**********
+Latin name: Passerculus sandwichensis
+Common name: Savannah sparrow
+Mass: 18.7
+Latin name: Delichon urbica
+Common name: House martin
+Mass: 19
+Latin name: Junco phaeonotus
+Common name: Yellow-eyed junco
+Mass: 19.5
+Latin name: Junco hyemalis
+Common name: Dark-eyed junco
+Mass: 19.6
+Latin name: Tachycineata bicolor
+Common name: Tree swallow
+Mass: 20.2
+
+**********
+No errors.
+======================================================================
+Script: test_control_flow.py
+
+Contents:
+
+**********
+#!/usr/bin/env python3
+
+"""Some functions exemplifying the use of control statements"""
+
+__author__ = 'Your Name (Your.Name@your.email.address)'
+__version__ = '0.0.1'
+
+import sys
+import doctest # Import the doctest module
+
+def even_or_odd(x=0):
+    """Find whether a number x is even or odd.
+      
+    >>> even_or_odd(10)
+    '10 is Even!'
+    
+    >>> even_or_odd(5)
+    '5 is Odd!'
+        
+    in case of negative numbers, the positive is taken:    
+    >>> even_or_odd(-2)
+    '-2 is Even!'
+    
+    """
+    #Define function to be tested
+    if x % 2 == 0:
+        return f"{x} is Even!"
+    return f"{x} is Odd!"
+
+def main(argv): 
+    print(even_or_odd(22))
+    print(even_or_odd(33))
+    return 0
+
+if (__name__ == "__main__"):
+    status = main(sys.argv)
+
+doctest.testmod()   # To run with embedded tests
+**********
+
+Output (first 500 chars):
+
+**********
+22 is Even!
+33 is Odd!
+
+**********
+No errors.
+======================================================================
+Script: loops.py
+
+Contents:
+
+**********
+# FOR looops
+for i in range(5):
+    print(i)
+
+my_list = [0, 2, "geronimo!", 3.0, True, False]
+for k in my_list:
+    print(k)
+
+total = 0
+summands = [0, 1, 11, 111, 1111]
+for s in summands:
+    total = total + s
+    print(total)
+
+# # WHITE loop
+# z = 0
+# while z < 100:
+#     z = z + 1
+#     print(z)
+
+
+x = 0
+test = [0, 1, 2, 3, 4, 5]
+for y in test:
+    x = x + y
+    print(x)
+**********
+
+Output (first 500 chars):
+
+**********
+0
+1
+2
+3
+4
+0
+2
+geronimo!
+3.0
+True
+False
+0
+1
+12
+123
+1234
+0
+1
+3
+6
+10
+15
+
+**********
+No errors.
+======================================================================
+Script: LV1.py
+
+Contents:
+
+**********
+import scipy.integrate as integrate
+import numpy as np
+import matplotlib.pylab as p
+
+# A curve
+y = np.array([5, 20, 18, 19, 18, 7, 4]) # The y values; can also use a python list here
+y1 = p.figure()
+p.plot(y)
+f1 = p.figure()
+
+# Consumer-Resource population dynamics
+def dCR_dt(pops, t=0):
+
+    R = pops[0]
+    C = pops[1]
+    dRdt = r * R - a * R * C 
+    dCdt = -z * C + e * a * R * C
+    
+    return np.array([dRdt, dCdt])
+
+r = 1.
+a = 0.1
+z = 1.5
+e = 0.75
+
+t = np.linspace(0, 15, 1000)
+
+R0 = 10
+C0 = 5
+RC0 = np.array([R0, C0])
+
+pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output = True)
+
+p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+p.grid()
+p.legend(loc='best')
+p.xlabel('Time')
+p.ylabel('Population density')
+p.title('Consumer-Resource population dynamics')
+p.show()# To display the figure
+
+# Practicals
+# Set radius and cneter first and then set angles
+f2 = p.figure()
+a= 20
+b = 10
+center = (25, 15)
+theta = np.linspace(0, 2*np.pi, 400)
+x2 = center[0] + a * np.cos(theta)
+y2 = center[1] + b * np.sin(theta)
+
+p.plot(x2, y2, 'r-')
+p.grid()
+p.xlabel('Resource density')
+p.ylabel('Consumer density')
+p.title('Consumer-Resource population dynamics')
+p.show()
+
+
+# Save figure
+y1.savefig('../results/y1_figure.pdf')
+f1.savefig('../results/LV_model.pdf')
+f2.savefig('../results/Practicals_figure.pdf')
+
+
+
+
+**********
+
+Output (first 500 chars):
+
+**********
+
+**********
+No errors.
+======================================================================
+Script: basic_csv.py
+
+Contents:
+
+**********
+import csv
+
+# Read a file containing:
+# 'Species', 'INfraorder', 'Family', 'Distribution', 'Body mass male (kg)'
+with open('../data/testcsv.csv','r') as f:
+
+    csvread = csv.reader(f)
+    temp = []
+    for row in csvread:
+        temp.append(tuple(row))
+        print(row)
+        print("The species is", row[0])
+
+# write a file containing only species name and Body mass
+with open('../data/testcsv.csv','r')as f:
+    with open('../data.bodymass.csv','w') as g:
+
+        csvread = csv.reader(f)
+        csvwrite = csv.writer(g)
+        for row in csvread:
+            print(row)
+            csvwrite.writerow([row[0], row[4]])
+**********
+
+Output (first 500 chars):
+
+**********
+['Species', 'Infraorder', 'Family', 'Distribution', 'Body mass male (Kg)']
+The species is Species
+['Daubentonia_madagascariensis', 'Chiromyiformes ', 'Daubentoniidae', 'Madagascar', '2.7']
+The species is Daubentonia_madagascariensis
+['Allocebus_trichotis', 'Lemuriformes', 'Cheirogaleidae', 'Madagascar', '0.1']
+The species is Allocebus_trichotis
+['Avahi_laniger', 'Lemuriformes', 'Indridae', 'America', '1.03']
+The species is Avahi_laniger
+['Avahi_occidentalis', 'Lemuriformes', 'Indridae', 'Madagas
+**********
+No errors.
+======================================================================
+Script: align_seqs.py
+
+Contents:
+
+**********
+import csv
+
+# # Two example sequences to match
+# seq2 = "ATCGCCGGATTACGGG"
+# seq1 = "CAATTCGGAT"
+
+# Read sequences from file
+input = "../data/sequences.csv"
+output = "../results/best_alignment.txt"
+
+with open(input, "r") as f:
+    reader = csv.reader(f)
+    for line in reader:
+        seq1 = line[1].strip()
+        seq2 = line[0].strip()
+    
+
+# Assign the longer sequence s1, and the shorter to s2
+# l1 is length of the longest, l2 that of the shortest
+l1 = len(seq1)
+l2 = len(seq2)
+if l1 >= l2:
+    s1 = seq1
+    s2 = seq2
+else:
+    s1 = seq2
+    s2 = seq1
+    l1, l2 = l2, l1 # swap the two lengths
+
+# A function that computes a score by returning the number of matches starting
+# from arbitrary startpoint (chosen by user)
+def calculate_score(s1, s2, l1, l2, startpoint):
+    matched = "" # to hold string displaying alignements
+    score = 0
+    for i in range(l2):
+        #import ipdb; ipdb.set_trace()
+        if (i + startpoint) < l1:
+            if s1[i + startpoint] == s2[i]: # if the bases match
+                matched = matched + "*"
+                score = score + 1
+            else:
+                matched = matched + "-"
+
+    # some formatted output
+    print("." * startpoint + matched)           
+    print("." * startpoint + s2)
+    print(s1)
+    print(score) 
+    print(" ")
+
+    return score
+
+# Test the function with some example starting points:
+# calculate_score(s1, s2, l1, l2, 0)
+# calculate_score(s1, s2, l1, l2, 1)
+# calculate_score(s1, s2, l1, l2, 5)
+
+# now try to find the best match (highest score) for the two sequences
+my_best_align = None
+my_best_score = -1
+
+for i in range(l1): # Note that you just take the last alignment with the highest score
+    #import ipdb; ipdb.set_trace()
+    z = calculate_score(s1, s2, l1, l2, i)
+    if z > my_best_score:
+        my_best_align = "." * i + s2 # think about what this is doing!
+        my_best_score = z 
+print(my_best_align)
+print(s1)
+print("Best score:", my_best_score)
+
+# Save results
+with open(output, "w") as f:
+    f.write(f"Best alignment: {my_best_align}\n")
+    f.write(s1 + "\n")
+    f.write(f"Best score: {my_best_score}\n")
+
+**********
+
+Output (first 500 chars):
+
+**********
+-----*****
+CAATTCGGAT
+ATCGCCGGATTACGGG
+5
+ 
+.------*--*
+.CAATTCGGAT
+ATCGCCGGATTACGGG
+2
+ 
+..*---------
+..CAATTCGGAT
+ATCGCCGGATTACGGG
+1
+ 
+...--------*-
+...CAATTCGGAT
+ATCGCCGGATTACGGG
+1
+ 
+....*---------
+....CAATTCGGAT
+ATCGCCGGATTACGGG
+1
+ 
+.....*---*-----
+.....CAATTCGGAT
+ATCGCCGGATTACGGG
+2
+ 
+......--***--*--
+......CAATTCGGAT
+ATCGCCGGATTACGGG
+4
+ 
+.......-*-*-***-
+.......CAATTCGGAT
+ATCGCCGGATTACGGG
+5
+ 
+........------**
+........CAATTCGGAT
+ATCGCCGGATTACGGG
+2
+ 
+.........--*---*
+.........CAATTCGGAT
+ATCGCCG
+**********
+No errors.
+
+======================================================================
+FEEDBACK SUMMARY
+======================================================================
+
+Scripts tested: 27
+Scripts successful: 23
+Scripts with errors: 4
+Warnings/Notes: 1
+
+IMPORTANT DEBUGGING GUIDANCE:
+------------------------------
+
+Please review all warnings and errors, and your directory structure based on the above log.
+
+Ask yourself: Why did I not get these warnings or errors on my machine when I tested my code?
+Common reasons for environment differences:
+
+• File paths: Your local machine may have different directory structures
+• Dependencies: Missing packages or different versions
+• File permissions: Scripts may not be executable on the testing server
+• Case sensitivity: Linux systems are case-sensitive (your laptop may not be)
+• Working directory: Scripts may assume they run from a specific location
+• Input files: Required data files may be missing or in wrong locations
+
+Debugging steps:
+1. Test your code in a clean environment (fresh directory)
+2. Check all file paths are relative and correct
+3. Verify all required files are present and properly named
+4. Test on a case-sensitive system if possible
+5. Run your scripts from different directories to check robustness
+
+Fix these issues and test again. Good debugging skills are essential for scientific computing!
+

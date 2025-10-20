@@ -19,7 +19,7 @@ Processing week 1
 Your current Git repo size is about 2.05 MiB on disk
 
 Found directories: .git, week1, week2, Feedback, week3
-Found files: .gitignore, README.md
+Found files: .gitignore, README.md, list.txt
 
 Processing week 1: week1
 
@@ -314,8 +314,8 @@ No errors.
 FEEDBACK SUMMARY
 ======================================================================
 
-Scripts tested: 10
-Scripts successful: 9
+Scripts tested: 8
+Scripts successful: 7
 Scripts with errors: 1
 Warnings/Notes: 1
 
