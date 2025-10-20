@@ -1,6 +1,3 @@
-# Welcome To My CMEE Coursework Repository
-
-This is the current project structure:
 .
 ├── Feedback
 │   └── log_week1_20251017.txt
