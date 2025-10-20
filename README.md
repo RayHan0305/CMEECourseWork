@@ -1,8 +1,8 @@
 # Welcome To My CMEE Coursework Repository
 
 This is the current project structure:  
-    
-.
+"""
+.  
 ├── Feedback  
 │   ├── log_week1_20251017.txt  
 │   └── log_week1_20251020.txt  
@@ -28,6 +28,5 @@ This is the current project structure:
     ├── results  
     └── sandbox  
 
-18 directories, 7 files
-    
+18 directories, 7 files"""
     
