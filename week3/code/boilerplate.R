@@ -34,7 +34,6 @@ is.power2 <- function(n = 2) {
 }
 
 # is.power2()
-
 # Checks if a number is prime
 is.prime <- function(n) {
     if (n==0) {

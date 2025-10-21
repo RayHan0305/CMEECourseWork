@@ -29,7 +29,7 @@ Sample codes of R functions
 The function calculates heights of trees given distance of each tree from its base and angle to its top, using the trigonometric formula.
 After modifing the script during Practicals, it can calculates all the tree heights in the dataset. The output file is "TreeHits.csv"
 
-10. **Vectorize.R**  
+10. **Vectorize1.R**  
 A sample script that illustrates how the vectorization makes writing code more concise.
 
 11. **preallocate.R**  

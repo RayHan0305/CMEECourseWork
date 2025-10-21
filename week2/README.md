@@ -72,6 +72,18 @@ Script that used to test numpy and generating figures.
 23. **test.py**  
 Used to test my script to see an expected result.
 
+24. **profileme.py**  
+Illustrative program that locate the sections of your code where speed bottlenecks exist.
+
+25. **profileme2.py**  
+An alternative approach of profiling code
+
+26. **timeitme.py**  
+Timeit module is used to figure out what the best way to do something specific as part of a larger program. And it includes a approach to time the function
+
+27. **vectorization_revisited.py**  
+Example of comparing  loop-based function and a vectorized function to calculate the entrywise product of two 1D arrays of the same length.
+
 
 
 
