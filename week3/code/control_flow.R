@@ -13,8 +13,8 @@ if (z <= 0.5) {
 # 1:10 generates a sequence (seq(10))
 # i, j is a temporary variable that stores the value of the number in that iteration of the loop
 for (i in 1:10) {
-    j <- i * i
-    print(paste(i, "squared is", j ))
+  j <- i * i
+  print(paste(i, "squared is", j))
 }
 
 # random assortment of birds
