@@ -1,7 +1,7 @@
 *~
 *.tmp
 myenv
-.Rhistory
+*.Rhistory
 list.txt
 *.sqlite
 *.log
