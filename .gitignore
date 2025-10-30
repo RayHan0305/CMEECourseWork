@@ -1,1 +1,6 @@
 myenv
+.Rhistory
+list.txt
+*.sqlite
+*.log
+*.aux

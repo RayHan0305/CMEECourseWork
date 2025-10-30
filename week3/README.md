@@ -44,15 +44,55 @@ Including a function called SomeOperation that do some calculations.
 14. **sample.R**  
 Sample script of vectorization involving lapply and sapply.
 
+15. **Florida.R**  
+Practical example for Florida task
+
+16. **Florida_Report.tex**  
+Latex file for Florida task
+
+17. **MyFirstJupyterNB.ipynb**  
+A test sample of jupyter notebook
+
+18. **PP_Regress.R**  
+The practical on regression
+
+19. **GPDD_Data.R**  
+Practical for map package
+
+20. **DataWrang.R**  
+Exemplifies methods to explore data, and transfers from wide to long format.
+
+21. **DataWrangTidy.R**  
+Exemplifies data exploration and switching from wide to long format using the packages 'tidyr' and 'dplyr'.
+
+22. **SQLinR.R**  
+SQL database operations in R. Shows how to use SQL queries within R environment
+
+23. **PP_Dists.R**  
+Plots Distribution of Predator, Prey Mass, and Predator/Prey mass by feeding interaction in three charts. Saves charts to pdf, as well as csv file containing mean, median log predator and prey mass, and the predator-prey size ratio by feeding type. (Still working on it)
+
+24. **Girko.R**  
+Plots a simulaion of Girko's law and saves to pdf in results directory
+
+25. **plotLin.R**  
+Exemplifies using ggplot to annotate and manipulate plots
+
+26. **MyBars.R**  
+Plots histogram with annotations. Saves results to results directory
+
 
 ## data
-1. **trees.csv**  
-Including data about those trees'Species, Distance.m, Angle.degrees
+- `EcolArchives-E089-51-D1.csv`
+- `PoundHillData.csv`
+- `PoundHillMetaData.csv`
+- `GenomeSIze.csv`
+- `trees.csv`
+- `GPDDFiltered.RData`
+- `KeyWestAnnualMeanTemperature.RData` 
+- `Results.txt`
 
 ## results
-1. **MyData.csv**  
-Save the data frames using 'write.table', including data from 'trees.csv'.
+All results from the scripts will be saved in the `results` folder.
 
-2. **TreeHits.csv**  
-The output file of "TreeHeight.R". It collects the output of all the tree heights that has been calculated.
+
 
