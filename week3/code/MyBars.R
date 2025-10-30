@@ -1,5 +1,5 @@
-a <- read.table("../data/results.txt", header = TRUE)
-
+library(ggplot2)
+a <- read.table("../data/Results.txt", header = TRUE)
 head(a)
 
 a$ymin <- rep(0, dim(a)[1]) # append a column of zeros
@@ -44,9 +44,7 @@ p <- p + scale_x_continuous("My x axis",
   scale_y_continuous("My y axis") + 
   theme_bw() + 
   theme(legend.position = "none") 
-p
 
-pdf("../results/MyBars.pdf")
-p
-dev.off()
+# Save the plot as MyBars.pdf
+ggsave("../results/MyBars.pdf", plot = p, width = 8, height = 6)
 

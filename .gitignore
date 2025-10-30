@@ -1,3 +1,5 @@
+*~
+*.tmp
 myenv
 .Rhistory
 list.txt
