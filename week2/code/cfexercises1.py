@@ -46,5 +46,5 @@ def main(argv):
     return 0
 
 if (__name__ == "__main__"):
-    status = amin(sys.argv)
+    status = min(sys.argv)
     sys.exit(status)

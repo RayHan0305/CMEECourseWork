@@ -110,4 +110,18 @@ Output of _alignseqs.py_
 2. **LV_model.pdf, y1_figure.pdf, Practicals_figure.pdf**  
 Output of _LV1.py_
 
+## error
+- The following error may occurs because of you are not in the right direction. For example, you need to get into /Documents/CMEECourseWork/week2/code
+```
+Errors:
+**********
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2025-26/Coursework/StudentRepos/RuixuanHan_rh925/week2/code/basic_io2.py", line 8, in <module>
+    f = open('../sandbox/testout.txt', 'w')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../sandbox/testout.txt'
+```
+
+**********
+
 
