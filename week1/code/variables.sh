@@ -6,15 +6,9 @@
 
 echo "This script was called with $# parameters"
 echo "The script's name is $0"
-
-if [ $# -lt 2 ]; then
-    echo "The arguments are $@"
-    echo "The first argument is $1"
-    echo "The second argument is $2"
-else
-    echo "No arguments are provided."
-fi
-echo
+echo "The arguments are $@"
+echo "The first argument is $1"
+echo "The second argument is $2"
 
 # Assigned Variables; Explicit declaration:
 MY_VAR='some string' 
@@ -31,6 +25,11 @@ echo 'Enter two numbers separated by space(s)'
 read a b
 echo
 echo 'you entered' $a 'and' $b '; Their sum is:'
+
+if [ -z "$a" ] || [ -z "$b" ]; then
+    echo "Error: please enter TWO numbers separated by space."
+    exit 1
+fi
 
 ## Assigned Variables; Command substitution
 MY_SUM=$(expr $a + $b)

@@ -10,7 +10,7 @@ p <- p + geom_linerange(data = a, aes(
   x = x,
   ymin = ymin,
   ymax = y1,
-  size = (0.5)
+  linewidth = 0.5
 ),
 colour = "#E69F00",
 alpha = 1/2, show.legend = FALSE)
@@ -20,7 +20,7 @@ p <- p + geom_linerange(data = a, aes(
   x = x,
   ymin = ymin,
   ymax = y2,
-  size = (0.5)
+  linewidth = 0.5
 ),
 colour = "#56B4E9",
 alpha = 1/2, show.legend = FALSE)
@@ -30,13 +30,13 @@ p <- p + geom_linerange(data = a, aes(
   x = x,
   ymin = ymin,
   ymax = y3,
-  size = (0.5)
+  linewidth = 0.5
 ),
 colour = "#D55E00",
 alpha = 1/2, show.legend = FALSE)
 
 # Annotate the plot with labels:
-p <- p + geom_text(data = a, aes(x = x, y = -500, label = Label))
+p <- p + geom_text(data = subset(a, !is.na(Label)), aes(x = x, y = -500, label = Label))
 
 # now set the axis labels, remove the legend, and prepare for bw printing
 p <- p + scale_x_continuous("My x axis",

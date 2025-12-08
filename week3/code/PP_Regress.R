@@ -81,9 +81,14 @@ library(ggplot2)
 
 # draw a diagram
 
-plot <- ggplot(data, aes(x = Prey.mass, y = Predator.mass, color = Predator.lifestage)) +
+data_plot <- data %>%
+  group_by(Type.of.feeding.interaction, Predator.lifestage) %>%
+  filter(n() >= 2) %>%
+  ungroup()
+
+plot <- ggplot(data_plot, aes(x = Prey.mass, y = Predator.mass, color = Predator.lifestage)) +
   geom_point(size = 1, shape = 3, alpha = 0.8) + # Scatter, transparency adjustment
-  geom_smooth(method = "lm", se = TRUE, size = 0.8, fullrange = TRUE, alpha = 0.2) + # Regression line and confidence interval
+  geom_smooth(method = "lm", se = FALSE, linewidth = 0.8, fullrange = TRUE, alpha = 0.2) + # Regression line and confidence interval
   facet_wrap(~ Type.of.feeding.interaction, scales = "fixed", ncol = 1, strip.position = "right") + # Coordinate calibration fixation
   scale_x_log10(breaks = c(1e-07, 1e-03, 1e+01)) + # Logarithmic scale on the horizontal axis
   scale_y_log10(breaks = c(1e-06, 1e-02, 1e+02, 1e+06)) + # Vertical axis logarithmic scale
@@ -101,7 +106,7 @@ plot <- ggplot(data, aes(x = Prey.mass, y = Predator.mass, color = Predator.life
     strip.text.y = element_text(size = 8, angle = 0, hjust = 0.5), # Adjust the font size of the right section header
     strip.background = element_blank(), # Remove the faceted background frame
     panel.border = element_rect(color = "grey", fill = NA, linewidth = 0.5), # Panel border
-    panel.grid.major = element_line(size = 0.3, color = "grey80"), # Main grid line color
+    panel.grid.major = element_line(linewidth = 0.3, color = "grey80"), # Main grid line color
     panel.grid.minor = element_blank(), # Remove the subgrid lines
     panel.spacing = unit(0.5, "lines") # Plane spacing
   )

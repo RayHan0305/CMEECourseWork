@@ -2,7 +2,7 @@
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
 # Use tidyverse to calculate the data
-
+require(tidyverse)
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
 MyData <- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))
@@ -33,10 +33,9 @@ colnames(TempData) <- MyData[1,] # assign column names from original data
 
 ############# Convert from wide to long format  ###############
 #(reshape2) # load the reshape2 package
+require(reshape2)
 #?melt #check out the melt function
 #MyWrangledData <- melt(TempData, id=c("Cultivation", "Block", "Plot", "Quadrat"), variable.name = "Species", value.name = "Count")
-
-require(tidyverse)
 
 MyWrangledData <- TempData %>% pivot_longer(cols = !c("Cultivation", "Block", "Plot", "Quadrat"),names_to = "Species", values_to = "Count") 
 #cols provide the col that you want to transform into one col

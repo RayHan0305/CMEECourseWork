@@ -4,19 +4,20 @@ load("../data/GPDDFiltered.RData")
 
 library("maps")
 library("ggplot2")
-library("ggthemes")
-
-#gpdd["Group"] = as.factor(gpdd["common.name"])
 
 world <-map_data("world")#
 p = ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill="grey")  + 
-  geom_point(data=gpdd,aes(x=long,y=lat),alpha=0.5, col = "red") + theme_clean()
+  geom_point(data=gpdd,aes(x=long,y=lat),alpha=0.5, col = "red") + theme_minimal()
 
 pdf("../results/GPDD_Data_MAP.pdf") # Open blank pdf page using a relative path
 print (p)
 dev.off()
 
-#Bias1: For diversity issues: No marine habitats
-#Bias2: For global issues: The locations of animals recorded are not distributed evenly among the world.
-#Most animals are found in Europe (especially in United Kingdom) and North America, which will cause bias
-
+#Bias1: Only terrestrial locations are shown; there are
+#    no marine or open-ocean locations on the map, so results will
+#    not reflect marine biodiversity or population trends.
+#Bias2: Strong geographic bias: most GPDD time series come from Europe
+#    (especially the UK) and North America. Large regions such as
+#    most of Africa, South America, Asia and the tropics are poorly
+#    represented, so any “global” analysis will be dominated by
+#    temperate, well-studied regions
