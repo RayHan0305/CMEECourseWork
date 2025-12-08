@@ -1,4 +1,12 @@
 # My CMEE Coursework Repository For Week3-Biological Computing in R
+Data processing workflows, documentation habits, input validation
+
+## Repository Structure
+- **code:** All R and Python scripts
+
+- **data:** Data files for  analysis
+
+- **results:** Output files from scripts
 
 ## code
 1. **.Rhistory**  
@@ -53,32 +61,8 @@ Latex file for Florida task
 17. **MyFirstJupyterNB.ipynb**  
 A test sample of jupyter notebook
 
-18. **PP_Regress.R**  
-The practical on regression
-
-19. **GPDD_Data.R**  
-Practical for map package
-
-20. **DataWrang.R**  
-Exemplifies methods to explore data, and transfers from wide to long format.
-
-21. **DataWrangTidy.R**  
-Exemplifies data exploration and switching from wide to long format using the packages 'tidyr' and 'dplyr'.
-
-22. **SQLinR.R**  
-SQL database operations in R. Shows how to use SQL queries within R environment
-
-23. **PP_Dists.R**  
-Plots Distribution of Predator, Prey Mass, and Predator/Prey mass by feeding interaction in three charts. Saves charts to pdf, as well as csv file containing mean, median log predator and prey mass, and the predator-prey size ratio by feeding type. (Still working on it)
-
-24. **Girko.R**  
-Plots a simulaion of Girko's law and saves to pdf in results directory
-
-25. **plotLin.R**  
+18. **plotLin.R**  
 Exemplifies using ggplot to annotate and manipulate plots
-
-26. **MyBars.R**  
-Plots histogram with annotations. Saves results to results directory
 
 
 ## data
@@ -94,5 +78,21 @@ Plots histogram with annotations. Saves results to results directory
 ## results
 All results from the scripts will be saved in the `results` folder.
 
+## How to run
+Navigate to 'code/' directory.
+Most scripts can be executed from the bash terminal using:
 
+```bash
+Rscript script_name.R
+```
 
+### Example Commands
+
+```bash
+Rscript DataWrang.R
+```
+
+## Author
+
+Ruixuan Han
+rh925@ic.ac.uk

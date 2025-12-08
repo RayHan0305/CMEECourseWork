@@ -1,6 +1,14 @@
 # My CMEE Coursework Repository For Week2
 This week's work is focusing on Python
 
+## Repository Structure
+- **code:** All R and Python scripts
+
+- **data:** Data files for  analysis
+
+- **results:** Output files from scripts
+
+
 ## code 
 1. **loops.py**  
     Simple examples of 'FOR loops' and 'WHILE loop'.
@@ -88,20 +96,13 @@ Example of comparing  loop-based function and a vectorized function to calculate
 
 
 ## data
-1. **fasta files**  
+- `fasta files`
 Those fasta files are used for the practicals in DNA sequences.
-
-2. **testcsv.csv**  
-The input file of align_seq.py, including two row of sequences.
-
-3. **bodymass.csv**  
-Data about species and their body mass (kg)
-
-4. **TestOaksData.csv**  
-Genus and species for Oaks
-
-5. **JustOakData.csv**  
-Write oak data (Only Quercus)
+- `JustOaksData.csv`
+- `sequences.csv`
+- `TestOaksData.csv`
+- `testcsv.csv` 
+- `test.txt`
 
 ## results 
 1. **best_alignment.txt**  
@@ -124,4 +125,18 @@ FileNotFoundError: [Errno 2] No such file or directory: '../sandbox/testout.txt'
 
 **********
 
+## How to run
+Navigate to 'code/' directory.
+Most scripts can be executed from the bash terminal using:
 
+```bash
+python3 script_name.py
+```
+If a script requires arguments (e.g. arg1), use:
+```bash
+python3 script_name.py arg1
+```
+
+## Author
+Ruixuan Han
+rh925@ic.ac.uk
