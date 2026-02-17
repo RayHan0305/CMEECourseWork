@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bootcamp_Assessment_RuixuanHan_rh925</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Bootcamp_Assessment_RuixuanHan_rh925</h1>
+</header>
+<h1 id="bootcamp-assessment-ruixuan-han">Bootcamp Assessment: Ruixuan
+Han</h1>
+<h2 id="expected-files-check">Expected files check</h2>
+<ul>
+<li>Expected scripts list: <strong>62</strong></li>
+<li>Missing expected scripts: <strong>17</strong> (16 taught + 1
+assigned)</li>
+<li>Expected outputs check (automated): <strong>Expected 1, Found 0,
+Missing 1</strong></li>
+</ul>
+<h2 id="execution-results">Execution results</h2>
+<p><strong>Individual repo functional correctness (Criterion
+2):</strong> - Scripts executed: <strong>62</strong> - Scripts
+successful: <strong>45</strong> - Scripts with errors:
+<strong>17</strong> - Success rate: <strong>72.6%</strong></p>
+<p><strong>Groupwork scripts functional correctness:</strong> -
+Groupwork expected scripts present: <strong>4/4</strong>
+(<code>align_seqs_fasta.py</code>, <code>oaks_debugme.py</code>,
+<code>PP_Regress_loc.R</code>, <code>TAutoCorr.R</code>) - Groupwork
+scripts executed: <strong>5</strong>, with <strong>1</strong> error
+(success rate 80%)</p>
+<h2 id="script-specific-feedback">Script-Specific Feedback</h2>
+<blockquote>
+<p>Representative scripts chosen to cover: strong examples, assigned
+scripts, execution issues, and common style/robustness problems.</p>
+</blockquote>
+<h2 id="script-specific-feedback-1">Script-Specific Feedback</h2>
+<blockquote>
+<p>Representative scripts chosen to cover: strong examples, assigned
+scripts, execution issues, and common style/robustness problems.</p>
+</blockquote>
+<h3 id="pp_regress_loc.r">PP_Regress_loc.R</h3>
+<p>Status: Present but not validated / error on clean run</p>
+<p>Evidence (from LOG): - Exit code: 1 - Missing from expected list: No
+- Tool warnings: R style issues flagged in LOG (Criterion 3) - Output
+validation: Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Ran under
+<code>cd "week4/code" &amp;&amp; Rscript --vanilla --slave PP_Regress_loc.R</code>
+but produced no captured stdout; error details may be in stderr .</p>
+<p>Improvement suggestion: Fix the syntax at the read.csv line (the LOG
+shows
+<code>unexpected symbol in "PP &lt;- read.csv(pp_data_path .."</code>).
+Re-run with <code>Rscript --vanilla PP_Regress_loc.R</code> and confirm
+it produces the expected plot/output. ### align_seqs_fasta.py</p>
+<p>Status: Success</p>
+<p>Evidence (from LOG): - Exit code: 0 - Missing from expected list: No
+- Tool warnings: None noted in LOG for this script - Output validation:
+Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Ran under
+<code>cd "week3/code" &amp;&amp; python3 align_seqs_fasta.py</code>.</p>
+<p>Improvement suggestion: Ensure the default FASTA inputs exist where
+the script expects them (<code>../data/seq1.fasta</code> and
+<code>../data/seq2.fasta</code>, per header), or add a clear error
+message + argparse requirement when files are missing. Also ensure
+<code>__appname__</code> and usage text match the filename. ###
+CountLines.sh</p>
+<p>Status: Present but not validated / error on clean run</p>
+<p>Evidence (from LOG): - Exit code: 1 - Missing from expected list: No
+- Tool warnings: None noted in LOG for this script - Output validation:
+Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Ran under
+<code>cd "week1/code" &amp;&amp; bash CountLines.sh</code>.</p>
+<p>Visible stdout:</p>
+<pre><code>  The file is not provided.</code></pre>
+<p>Improvement suggestion: Accept a filename as a positional argument
+and print a helpful usage message (e.g.,
+<code>Usage: CountLines.sh &lt;file&gt;</code>). Exit with non-zero only
+after printing usage.</p>
+<h3 id="pp_dists.r">PP_Dists.R</h3>
+<p>Status: Present but not validated / error on clean run</p>
+<p>Evidence (from LOG): - Exit code: 1 - Missing from expected list: No
+- Tool warnings: R style issues flagged in LOG (Criterion 3) - Output
+validation: Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Ran under
+<code>cd "week4/code" &amp;&amp; Rscript --vanilla --slave PP_Dists.R</code>
+but produced no captured stdout; error details may be in stderr .</p>
+<p>Improvement suggestion: First make the script runnable on clean data
+paths, then address style issues (consistent <code>&lt;-</code>, avoid
+overwriting base names, check working directory assumptions). ###
+DataWrang.R</p>
+<p>Status: Success</p>
+<p>Evidence (from LOG): - Exit code: 0 - Missing from expected list: No
+- Tool warnings: None noted in LOG for this script - Output validation:
+Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Improvement suggestion:</p>
+<p>Consider adding a short usage header describing required
+inputs/outputs and a minimal guard for missing inputs.</p>
+<h3 id="profileme.py">profileme.py</h3>
+<p>Status: Success</p>
+<p>Evidence (from LOG): - Exit code: 0 - Missing from expected list: No
+- Tool warnings: None noted in LOG for this script - Output validation:
+Not configured / not validated in LOG</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>Ran under
+<code>cd "week4/code" &amp;&amp; python3 profileme.py</code>.</p>
+<p>Visible stdout:</p>
+<pre><code>  10000000 My string</code></pre>
+<p>Improvement suggestion: Consider adding a short usage header
+describing required inputs/outputs and a minimal guard for missing
+inputs. ### blackbirds.py</p>
+<p>Status: Missing (expected but not found)</p>
+<p>Evidence (from LOG): - Exit code: N/A - Missing from expected list:
+<strong>Yes</strong> (listed under “Missing taught”) - Tool warnings:
+N/A - Output validation: Not possible (file absent)</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9</p>
+<p>This is one of the taught Python scripts expected in the repository.
+Its absence reduces evidence of completeness for the taught Python
+workflow.</p>
+<p>Improvement suggestion: Restore/commit <code>blackbirds.py</code> (or
+the correctly named equivalent) into the appropriate
+<code>week*/code</code> directory, and ensure it runs from the command
+line on a clean environment.</p>
+<hr />
+<h2 id="detailed-evaluation-tautocorr.r">Detailed Evaluation:
+TAutoCorr.R</h2>
+<h3 id="a.-specification-alignment">A. Specification Alignment</h3>
+<p><strong>Specification alignment vs
+<code>SCRIPT_METADATA_JSON</code>:</strong></p>
+<h3 id="b.-conceptual-understanding-of-autocorrelation">B. Conceptual
+Understanding of Autocorrelation</h3>
+<ul>
+<li>Uses relative path to load data via
+<code>load("../data/KeyWestAnnualMeanTemperature.RData")</code> and
+checks <code>ats</code> exists (meets “relative paths + no interactive
+input”).</li>
+<li>Constructs successive-year pairs (<code>temps[-n]</code> vs
+<code>temps[-1]</code>) and computes observed correlation with
+<code>cor(...)</code> (meets successive-year-pairs requirement).</li>
+<li>Performs permutation test by randomly permuting temperatures and
+recomputing correlation in a loop; stores null correlations (meets
+permutation-analysis requirement).</li>
+<li>Computes approximate p-values as fraction of permuted correlations ≥
+observed (one-sided) and |perm| ≥ |obs| (two-sided) and reports them
+clearly (meets p-value requirement; one-sided aligns with rule).</li>
+<li>Does <strong>not</strong> use <code>cor.test()</code> p-value as
+final p-value (meets requirement).</li>
+<li>Produces a histogram PDF and writes a results text file (supports
+optional plot/output requirement).</li>
+</ul>
+<h3 id="c.-algorithmic-implementation-depth">C. Algorithmic
+Implementation Depth</h3>
+<p><strong>Conceptual understanding:</strong> - Clear understanding that
+temporal order must be broken for the null:
+<code>sample(temps, replace = FALSE)</code>. - Correct lag handling for
+lag-1: compares <code>t</code> with <code>t+1</code> using shifted
+vectors. - Reports both one- and two-sided empirical p-values; one-sided
+directly addresses the prompt “are successive years positively
+correlated?”.</p>
+<h3 id="d.-statistical-computational-rigor">D. Statistical &amp;
+Computational Rigor</h3>
+<p><strong>Algorithmic implementation depth vs example
+solution:</strong> - Student uses direct vector slicing for shifted
+pairs (compact and less error-prone) instead of an explicit helper
+function + <code>cor.test()</code> as in the example. - Permutation
+implemented with a straightforward <code>for</code> loop storing
+<code>r_perm[i]</code> (conceptually equivalent to the example’s
+permutation loop). - Uses <code>set.seed()</code> and a large
+<code>nperm</code> (10,000), improving reproducibility and stability of
+the empirical p-value. - NA/short-series handling: present indirectly
+via <code>stop()</code> checks for <code>ats</code> and minimal series
+length check (see <code>if (n &lt; 3) stop(...)</code> if present); no
+explicit NA handling beyond that.</p>
+<h3 id="e.-error-handling-robustness">E. Error Handling &amp;
+Robustness</h3>
+<p><strong>Statistical &amp; computational rigor:</strong> - Uses
+Pearson correlation (<code>method = "pearson"</code>); acceptable unless
+specification demands Spearman (metadata does not). - P-value computed
+empirically from permutation distribution (correct for this
+question).</p>
+<h3 id="f.-comparison-with-example-solution">F. Comparison with Example
+Solution</h3>
+<ul>
+<li><strong>Similarities:</strong> loads
+<code>KeyWestAnnualMeanTemperature.RData</code>, computes lag-1
+correlation on adjacent-year pairs, builds null distribution via random
+permutation, compares observed to null.</li>
+<li><strong>Omissions:</strong> fewer exploratory plots than example
+(time series plot + lag-plot).</li>
+<li><strong>Conceptual gaps:</strong> none obvious for the core
+permutation autocorrelation task (based on LOG + script content).</li>
+<li><strong>Improvements beyond example:</strong> reproducibility
+(<code>set.seed</code>), explicit one- and two-sided empirical p-values,
+and saving both plot + text outputs.</li>
+</ul>
+<h3 id="g.-required-script-level-reporting-block">G. Required
+Script-Level Reporting Block</h3>
+<h3 id="tautocorr.r">TAutoCorr.R</h3>
+<p>Status: Success</p>
+<p>Specification alignment: - Matches core specification
+(successive-year correlation + permutation p-value).</p>
+<p>Algorithmic evaluation: - Correct shifted-pair construction and
+permutation loop; saves histogram + results file.</p>
+<p>Conceptual understanding: - Correctly breaks temporal structure under
+null via permutation; lag-1 focus is explicit.</p>
+<p>Statistical correctness: - Empirical p-values derived from null
+permutation distribution; does not rely on <code>cor.test()</code>
+p-value.</p>
+<p>Rubric relevance: - Criterion 2 - Criterion 3 - Criterion 8 -
+Criterion 9 - Criterion 10 - Criterion 11</p>
+<ul>
+<li>The script executes cleanly and reports an observed positive lag-1
+correlation plus small empirical p-values.</li>
+</ul>
+<h2 id="overall-feedback">Overall feedback</h2>
+<h3 id="criterion-1-repository-organisation-workflow">Criterion 1 —
+Repository organisation &amp; workflow</h3>
+<p><strong>What’s working:</strong> Clear week-based structure with
+<code>week*/code</code> and <code>week*/results</code>; no duplicate
+script basenames.<br />
+<strong>To improve next:</strong> Adopt the bootcamp standard layout (or
+keep week layout but ensure results are reproducible and not committed).
+Remove large binaries (e.g. 16.9MB file flagged) and add stronger
+<code>.gitignore</code> rules (Python cache, editor files,
+results/outputs).</p>
+<h3 id="criterion-2-code-completeness-functional-correctness">Criterion
+2 — Code completeness &amp; functional correctness</h3>
+<p><strong>What’s working:</strong> A large fraction of scripts run
+cleanly, including the key assigned <code>TAutoCorr.R</code>.<br />
+<strong>To improve next:</strong> Prioritise making the <strong>17
+failing scripts</strong> runnable on a clean machine. Many failures are
+likely due to missing inputs/paths or unhandled arguments; add clear
+usage + relative paths + minimal guards.</p>
+<h3 id="criterion-3-code-quality-style">Criterion 3 — Code quality &amp;
+style</h3>
+<p><strong>What’s working:</strong> Python code is mostly clean (32/34
+files).<br />
+<strong>To improve next:</strong> R style issues are extensive; focus on
+a small set of habits: consistent <code>&lt;-</code>, avoid implicit
+globals, and keep scripts modular (small functions) where repeated logic
+exists.</p>
+<h3 id="criterion-4-documentation">Criterion 4 — Documentation</h3>
+<p><strong>What’s working:</strong> Main README quality is excellent;
+weekly READMEs are present; comment coverage in R and shell is
+good.<br />
+<strong>To improve next:</strong> Increase Python docstrings for
+functions/modules that implement key logic (even 2–3 lines each
+helps).</p>
+<h3 id="criterion-5-version-control-practice">Criterion 5 — Version
+control practice</h3>
+<p><strong>What’s working:</strong> Healthy commit volume and generally
+good commit message quality.<br />
+<strong>To improve next:</strong> Avoid committing generated outputs and
+cache files; use feature branches occasionally (even one per week) to
+demonstrate branching workflow rather than working entirely on
+<code>main</code>.</p>
+<h3 id="criterion-6-collaborative-workflow-group-repo">Criterion 6 —
+Collaborative workflow (group repo)</h3>
+<p><strong>What’s working:</strong> Multiple contributors are active;
+merge commits indicate some integration.<br />
+<strong>To improve next:</strong> Introduce at least lightweight feature
+branches.</p>
+<h3 id="criterion-7-individual-contribution-in-group-repo">Criterion 7 —
+Individual contribution in group repo</h3>
+<p><strong>What’s working:</strong> 20 commits attributed to the student
+author identity and a non-empty <code>CONTRIBUTIONS.md</code>
+exists.<br />
+<strong>To improve next:</strong> Ensure commits include
+<strong>substantive code changes</strong> (the LOG reports 0 lines
+changed for the matched author identity). If this is an
+attribution/author-name mismatch, fix your Git config so your
+substantive commits are correctly credited.</p>
+<h3 id="criterion-8-error-handling-input-validation">Criterion 8 — Error
+handling &amp; input validation</h3>
+<p><strong>What’s working:</strong> Some scripts fail gracefully with
+informative messaging.<br />
+<strong>To improve next:</strong> Add basic guards: check files exist,
+validate CLI args, and wrap IO in try/except (Python) or
+<code>tryCatch</code> (R). This will convert many “clean-run failures”
+into “present but informative”.</p>
+<h3 id="criterion-9-problem-solving-method-implementation">Criterion 9 —
+Problem-solving &amp; method implementation</h3>
+<p><strong>What’s working:</strong> Clear algorithmic implementation in
+<code>TAutoCorr.R</code>; evidence of exploratory work and additional
+scripts.<br />
+<strong>To improve next:</strong> Congoodate and finish core required
+scripts first (especially missing expected taught scripts), then keep
+exploratory extensions.</p>
+<h3 id="criterion-10-reporting-communication">Criterion 10 — Reporting
+&amp; communication</h3>
+<p><strong>What’s working:</strong> Produces several plots/reports in
+results directories; <code>TAutoCorr</code> saves a histogram + text
+summary.</p>
+<h3 id="criterion-11-learning-progression">Criterion 11 — Learning
+progression</h3>
+<p><strong>What’s working:</strong> Moderate progression over weeks;
+increased use of functions and improved Python syntax success.<br />
+<strong>To improve next:</strong> Aim for a visible increase in
+robustness (validation + error handling) in later weeks.</p>
+<h2 id="priority-fixes">Priority fixes</h2>
+<ol type="1">
+<li><strong>Make failing scripts runnable on clean Linux</strong> (start
+with those failing with no stderr: add explicit error messages +
+argument validation).</li>
+<li><strong>Remove committed outputs + caches</strong>
+(<code>results/</code>, <code>__pycache__/</code>, <code>.RData</code>,
+<code>.Rhistory</code>, logs) and strengthen
+<code>.gitignore</code>.</li>
+<li><strong>Group repo: fix attribution/substance mismatch</strong>
+(ensure your commits contain substantive changes and are credited to
+you).</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>Good work - Strong evidence of conceptual understanding across
+multiple practicals. Documentation is a clear strength (excellent README
++ weekly READMEs <strong>workflow hygiene</strong> (committed
+results/caches + large file).Groupwork shows active collaboration, but
+individual contribution evidence is <strong>unclear</strong>.</p>
+<h2 id="mark-classification">Mark classification</h2>
+<!-- Total Mark: 66/100   -->
+<p>Classification: Merit</p>
+</body>
+</html>
