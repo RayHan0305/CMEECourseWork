@@ -3,6 +3,7 @@
 .RData
 .Ruserdata
 .Rproj.user/
+*.Rproj
 
 # OS generated files
 .DS_Store
