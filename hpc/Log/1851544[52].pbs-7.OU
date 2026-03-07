@@ -1,0 +1,13 @@
+Using Rscript:
+/sw-eb/software/R/4.4.2-gfbf-2024a/bin/Rscript
+Rscript (R) version 4.4.2 (2024-10-31)
+[1] 0.0046229
+
+====================================
+CPU Time used: 11:23:27
+CPU Percent: 99%
+Memory usage: 168788kb
+Approx Power usage: 0.1366
+Walltime usage: 11:30:14
+
+====================================

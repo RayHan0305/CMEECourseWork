@@ -1,0 +1,17 @@
+# R temporary files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# editor temporary files
+*.swp
+*.tmp
+*~
+
+# compiled / cache
+*.cache
