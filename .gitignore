@@ -6,3 +6,4 @@ list.txt
 *.sqlite
 *.log
 *.aux
+.Rproj.user
