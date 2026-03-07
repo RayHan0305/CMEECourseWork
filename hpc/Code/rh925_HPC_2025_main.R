@@ -206,21 +206,41 @@ question_5 <- function(){
   
   prop_extinct <- tab / tot
   
-  png(filename="../Results/question_5.png", width=600, height=400)
+  # colours for bars
+  bar_cols <- c("steelblue", "skyblue", "tomato", "salmon")
+  
+  png(filename="../Results/question_5.png", width=700, height=500)
+  
   barplot(prop_extinct,
-          ylab="Proportion extinct",
-          xlab="Initial condition",
-          main="Extinction probability across initial conditions",
-          las=2)
+          col = bar_cols,
+          ylab = "Proportion extinct",
+          xlab = "Initial condition",
+          main = "Extinction probability across initial conditions",
+          names.arg = c("Adults,\nlarge population",
+                        "Adults,\nsmall population",
+                        "Mixed,\nlarge population",
+                        "Mixed,\nsmall population"),
+          las = 1)
+  
+  legend("topright",
+         legend = c("Adults, large population",
+                    "Adults, small population",
+                    "Mixed, large population",
+                    "Mixed, small population"),
+         fill = bar_cols,
+         bty = "n",
+         cex = 0.8)
+  
   Sys.sleep(0.1)
   dev.off()
   
   worst <- names(which.max(prop_extinct))
-  return(paste("The population most likely to go extinct was ", worst, ". ",
-               "This is because it starts as the smallest population and is spread across life stages, so relatively few individuals are reproductive at the beginning. ",
-               "With such a small starting population, demographic stochasticity (random variation in survival and reproduction) has a much larger proportional effect, making extinction more likely. ",
-               "By contrast, large populations buffer these random fluctuations, and populations starting with many adults reproduce immediately, reducing extinction risk."
-               ))
+  return(paste(
+    "The population most likely to go extinct was", worst, ".",
+    "This is because it starts as the smallest population and is spread across life stages, so relatively few individuals are reproductive at the beginning.",
+    "With such a small starting population, demographic stochasticity (random variation in survival and reproduction) has a much larger proportional effect, making extinction more likely.",
+    "By contrast, large populations buffer these random fluctuations, and populations starting with many adults reproduce immediately, reducing extinction risk."
+  ))
 }
 
 # Question 6
@@ -1025,27 +1045,26 @@ Challenge_C <- function() {
   duration <- burn_in + extra_gens
   
   # Range of initial richness values to explore
-  # (You can change step size if you want more/less lines)
   richness_values <- seq(1, 100, by = 10)
   
-  # Replicates per richness value (adjust if needed)
+  # Replicates per richness value
   n_reps <- 20
   
-  # Helper: random initial community where each individual is equally likely
-  # to take any species identity from 1..R
   init_random_richness <- function(size, R) {
     sample.int(R, size = size, replace = TRUE)
   }
   
-  # Helper: run one replicate and return richness time series
+  # run one replicate and return richness time series
   run_one <- function(init_comm) {
     comm <- init_comm
     ts <- numeric(duration + 1)
     ts[1] <- species_richness(comm)
+    
     for (g in seq_len(duration)) {
       comm <- neutral_generation_speciation(comm, speciation_rate)
       ts[g + 1] <- species_richness(comm)
     }
+    
     ts
   }
   
@@ -1067,33 +1086,38 @@ Challenge_C <- function() {
   }
   
   # Plot all averaged series on one graph
-  png(filename="../Results/Challenge_C.png", width = 600, height = 400)
+  png(filename = "../Results/Challenge_C.png", width = 600, height = 400)
   
   time <- 0:duration
   all_vals <- unlist(mean_series_list, use.names = FALSE)
+  cols <- rainbow(length(mean_series_list))
   
   plot(time, mean_series_list[[1]], type = "l",
        xlab = "Generation",
        ylab = "Mean species richness",
        main = "Challenge C: Mean richness for many initial richness values",
        ylim = range(all_vals, na.rm = TRUE),
-       col = 1)
+       col = cols[1],
+       lwd = 2)
   
   if (length(mean_series_list) > 1) {
     for (i in 2:length(mean_series_list)) {
-      lines(time, mean_series_list[[i]], col = 1)
+      lines(time, mean_series_list[[i]],
+            col = cols[i],
+            lwd = 2)
     }
   }
   
-  # Add a legend (may be crowded; optional)
   legend("topright",
          legend = names(mean_series_list),
+         col = cols,
+         lty = 1,
+         lwd = 2,
          bty = "n",
          cex = 0.6)
   
   Sys.sleep(0.1)
   dev.off()
-  
 }
 
 # Challenge question D
