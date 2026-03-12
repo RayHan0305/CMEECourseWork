@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-from __future__ import annotations
 
 from pathlib import Path
 from typing import List
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
+# Paths and constants
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -29,8 +28,10 @@ SUMMARY_TABLES_FILE = RESULTS_DIR / "summary_tables.csv"
 RANDOM_SEED = 42
 N_REPRESENTATIVE_CURVES = 9
 
+# Utility and model functions
 
 def summarise_numeric(series: pd.Series) -> str:
+    """Return a short summary string for a numeric series."""
     s = pd.to_numeric(series, errors="coerce").dropna()
     if s.empty:
         return "NA"
@@ -41,14 +42,19 @@ def summarise_numeric(series: pd.Series) -> str:
 
 
 def logistic_model(t: np.ndarray, K: float, r: float, N0: float) -> np.ndarray:
+    """Logistic growth model."""
     return K / (1 + ((K - N0) / N0) * np.exp(-r * t))
 
 
 def gompertz_model(t: np.ndarray, K: float, r: float, t0: float) -> np.ndarray:
+    """Gompertz growth model."""
     return K * np.exp(-np.exp(-r * (t - t0)))
 
 
+# Exploratory analysis
+
 def plot_sample_curves(df: pd.DataFrame, n_curves: int = 9) -> None:
+    """Plot a random subset of observed growth curves."""
     np.random.seed(RANDOM_SEED)
     curves = df["curve_id"].drop_duplicates().tolist()
     selected = np.random.choice(curves, size=min(n_curves, len(curves)), replace=False)
@@ -74,6 +80,14 @@ def plot_sample_curves(df: pd.DataFrame, n_curves: int = 9) -> None:
 
 
 def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Create exploratory summaries and figures.
+
+    This function produces:
+    - a compact summary table for the cleaned dataset
+    - histograms / barplots describing the structure of the data
+    - a random set of example curves
+    """
     curve_counts = df.groupby("curve_id").size().rename("n_points").reset_index()
 
     summary = {
@@ -82,8 +96,8 @@ def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
         "n_species": df["Species"].nunique(),
         "n_temperatures": df["Temp"].nunique(),
         "n_media": df["Medium"].nunique(),
-        "time_units": ", ".join(sorted(df["Time_units"].dropna().unique().tolist())) if "Time_units" in df.columns else "NA",
-        "popbio_units": ", ".join(sorted(df["PopBio_units"].dropna().unique().tolist())) if "PopBio_units" in df.columns else "NA",
+        "time_units": ", ".join(sorted(df["Time_units"].dropna().unique().tolist())),
+        "popbio_units": ", ".join(sorted(df["PopBio_units"].dropna().unique().tolist())),
         "time_summary": summarise_numeric(df["Time"]),
         "popbio_summary": summarise_numeric(df["PopBio"]),
         "curve_points_summary": summarise_numeric(curve_counts["n_points"]),
@@ -94,6 +108,7 @@ def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
         "value": list(summary.values())
     })
 
+    # Distribution of observations per curve
     plt.figure(figsize=(7, 5))
     plt.hist(curve_counts["n_points"], bins=20)
     plt.xlabel("Points per curve")
@@ -103,7 +118,13 @@ def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
     plt.savefig(EXPLORATORY_DIR / "curve_point_distribution.png", dpi=300)
     plt.close()
 
-    species_counts = df.groupby("Species")["curve_id"].nunique().sort_values(ascending=False).head(15)
+    # Species with the largest number of curves
+    species_counts = (
+        df.groupby("Species")["curve_id"]
+        .nunique()
+        .sort_values(ascending=False)
+        .head(15)
+    )
     plt.figure(figsize=(10, 5))
     species_counts.plot(kind="bar")
     plt.ylabel("Number of curves")
@@ -112,6 +133,7 @@ def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
     plt.savefig(EXPLORATORY_DIR / "species_curve_counts.png", dpi=300)
     plt.close()
 
+    # Number of curves across temperature conditions
     temp_counts = df.groupby("Temp")["curve_id"].nunique().sort_index()
     plt.figure(figsize=(8, 5))
     temp_counts.plot(kind="bar")
@@ -122,18 +144,20 @@ def exploratory_analysis(df: pd.DataFrame) -> pd.DataFrame:
     plt.close()
 
     plot_sample_curves(df, n_curves=N_REPRESENTATIVE_CURVES)
-
     return summary_df
 
+# Model comparison
 
 def compare_models(metrics_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    valid = metrics_df[metrics_df["success"] == True].copy()
+    """
+    Select the best model for each curve using AIC.
 
-    if valid.empty:
-        return (
-            pd.DataFrame(columns=["curve_id", "best_model", "best_aic"]),
-            pd.DataFrame(columns=["metric", "value"])
-        )
+    Also return a short summary table recording:
+    - number of fitted curves
+    - model win counts
+    - convergence success rates
+    """
+    valid = metrics_df[metrics_df["success"] == True].copy()
 
     best_idx = valid.groupby("curve_id")["aic"].idxmin()
     best_df = valid.loc[best_idx, [
@@ -172,18 +196,20 @@ def compare_models(metrics_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame
 
 
 def get_predictions(time_grid: np.ndarray, row: pd.Series) -> np.ndarray:
+    """Generate fitted predictions from one parameter row."""
     if row["model"] == "logistic":
         return logistic_model(time_grid, row["K"], row["r"], row["N0"])
-    elif row["model"] == "gompertz":
-        return gompertz_model(time_grid, row["K"], row["r"], row["t0"])
-    else:
-        raise ValueError(f"Unknown model: {row['model']}")
+    return gompertz_model(time_grid, row["K"], row["r"], row["t0"])
 
+# Plot fitted curves and summary figures
 
 def plot_representative_fits(df: pd.DataFrame, params_df: pd.DataFrame, best_df: pd.DataFrame) -> None:
-    if best_df.empty:
-        return
+    """
+    Plot a random set of representative curves with fitted models overlaid.
 
+    These figures are useful for checking whether numerical fit quality
+    is matched by visually sensible curve shapes.
+    """
     np.random.seed(RANDOM_SEED)
     selected = np.random.choice(
         best_df["curve_id"].tolist(),
@@ -221,60 +247,70 @@ def plot_representative_fits(df: pd.DataFrame, params_df: pd.DataFrame, best_df:
 
 
 def plot_summary_figures(metrics_df: pd.DataFrame, best_df: pd.DataFrame) -> None:
+    """
+    Produce overall comparison figures.
+
+    Includes:
+    - AIC distributions by model
+    - counts of best-fitting models
+    - best-model proportions across temperatures
+    """
     valid = metrics_df[metrics_df["success"] == True].copy()
 
-    if not valid.empty:
-        labels = sorted(valid["model"].unique().tolist())
-        data = [valid.loc[valid["model"] == m, "aic"].dropna().values for m in labels]
+    labels = sorted(valid["model"].unique().tolist())
+    data = [valid.loc[valid["model"] == m, "aic"].dropna().values for m in labels]
 
-        plt.figure(figsize=(7, 5))
-        plt.boxplot(data, tick_labels=labels)
-        plt.ylabel("AIC")
-        plt.title("AIC distribution by model")
-        plt.tight_layout()
-        plt.savefig(SUMMARY_DIR / "aic_distribution_by_model.png", dpi=300)
-        plt.close()
+    # AIC distribution by model
+    plt.figure(figsize=(7, 5))
+    plt.boxplot(data, tick_labels=labels)
+    plt.ylabel("AIC")
+    plt.title("AIC distribution by model")
+    plt.tight_layout()
+    plt.savefig(SUMMARY_DIR / "aic_distribution_by_model.png", dpi=300)
+    plt.close()
 
-    if not best_df.empty:
-        counts = best_df["best_model"].value_counts()
+    # Number of curves won by each model
+    counts = best_df["best_model"].value_counts()
+    plt.figure(figsize=(6, 5))
+    counts.plot(kind="bar")
+    plt.ylabel("Number of curves")
+    plt.title("Best-fitting model counts")
+    plt.tight_layout()
+    plt.savefig(SUMMARY_DIR / "best_model_counts.png", dpi=300)
+    plt.close()
 
-        plt.figure(figsize=(6, 5))
-        counts.plot(kind="bar")
-        plt.ylabel("Number of curves")
-        plt.title("Best-fitting model counts")
-        plt.tight_layout()
-        plt.savefig(SUMMARY_DIR / "best_model_counts.png", dpi=300)
-        plt.close()
+    # Proportion of best models within each temperature
+    temp_table = (
+        best_df.groupby(["Temp", "best_model"])
+        .size()
+        .unstack(fill_value=0)
+        .sort_index()
+    )
+    temp_prop = temp_table.div(temp_table.sum(axis=1), axis=0)
 
-        temp_table = (
-            best_df.groupby(["Temp", "best_model"])
-            .size()
-            .unstack(fill_value=0)
-            .sort_index()
-        )
-
-        if not temp_table.empty:
-            temp_prop = temp_table.div(temp_table.sum(axis=1), axis=0)
-
-            plt.figure(figsize=(8, 5))
-            temp_prop.plot(kind="bar", stacked=True)
-            plt.ylabel("Proportion of curves")
-            plt.title("Best model proportion by temperature")
-            plt.tight_layout()
-            plt.savefig(SUMMARY_DIR / "best_model_by_temperature.png", dpi=300)
-            plt.close()
+    plt.figure(figsize=(8, 5))
+    temp_prop.plot(kind="bar", stacked=True)
+    plt.ylabel("Proportion of curves")
+    plt.title("Best model proportion by temperature")
+    plt.tight_layout()
+    plt.savefig(SUMMARY_DIR / "best_model_by_temperature.png", dpi=300)
+    plt.close()
 
 
 def save_summary_tables(summary_tables: List[pd.DataFrame]) -> None:
+    """Combine and save all summary tables to one csv file."""
     combined_summary = pd.concat(summary_tables, ignore_index=True)
     combined_summary.to_csv(SUMMARY_TABLES_FILE, index=False)
 
 
+# Main workflow
+
 def main() -> None:
+    """Run model comparison, figure generation, and summary export."""
     if not CLEAN_DATA_FILE.exists():
-        raise FileNotFoundError(f"Cannot find {CLEAN_DATA_FILE}. Run 01_data_prep.py first.")
+        raise FileNotFoundError(f"Cannot find {CLEAN_DATA_FILE}. Run data_prep.py first.")
     if not FITTED_PARAMS_FILE.exists() or not MODEL_METRICS_FILE.exists():
-        raise FileNotFoundError("Cannot find model fitting outputs. Run 02_fit_models.py first.")
+        raise FileNotFoundError("Cannot find model fitting outputs. Run fit_models.py first.")
 
     print("Loading cleaned data and model outputs...")
     clean_df = pd.read_csv(CLEAN_DATA_FILE)

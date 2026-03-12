@@ -21,11 +21,19 @@
 \bibliographystyle{apalike}
 \urlstyle{same}
 
+% Paragraph formatting: first-line indent, no extra paragraph spacing
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+
+% Automatic word count via texcount
+\newcommand{\wordcount}{
+\immediate\write18{texcount -1 -sum -merge MiniProject.tex > wordcount.txt}
+\input{wordcount.txt}
+}
+
 \begin{document}
 
-%========================
 % Title page
-%========================
 \begin{titlepage}
     \centering
     \vspace*{2cm}
@@ -33,16 +41,15 @@
     {\LARGE \textbf{Logistic models more often outperform Gompertz models for empirical microbial growth curves}}\\[1.5cm]
 
     {\Large Ruixuan Han}\\[0.5cm]
-    {\large Imperial College London}\\[1cm]
+    {\large Imperial College London}\\[0.3cm]
+    {\large rhh925@ic.ac.uk}\\[1cm]
 
-    {\large Word count: 1981}\\[2cm]
+    {\large Word count: \wordcount}\\[2cm]
 
     \vfill
 \end{titlepage}
 
-%========================
 % Abstract
-%========================
 \begin{abstract}
 Population growth curves are central to ecology, microbiology, and food biology because they summarise how organisms respond to environmental conditions and resource limitation. However, empirical growth data often vary substantially in shape, making it unclear whether a single mathematical form adequately captures observed trajectories. Here I compared two common sigmoidal growth models, the logistic and Gompertz models, using a heterogeneous empirical dataset of microbial growth curves collected across multiple species, temperatures, media, and published studies.
 
@@ -56,20 +63,16 @@ Overall, the logistic model was the more robust general-purpose description of t
 \newpage
 \linenumbers
 
-%========================
 % Introduction
-%========================
 \section{Introduction}
 
-Population growth is a foundational concept in biology because changes in abundance through time reflect the combined effects of physiology, resource availability, environmental conditions, and density dependence. In microbial systems, growth curves are especially important because they are used to describe spoilage dynamics, fermentation performance, laboratory culture behaviour, and environmental responses across taxa and conditions \citep{Zwietering1990}. A useful growth model should therefore provide both a good statistical fit and a biologically interpretable representation of observed dynamics.
+  Population growth is a foundational concept in biology because changes in abundance through time reflect the combined effects of physiology, resource availability, environmental conditions, and density dependence. In microbial systems, growth curves are especially important because they are used to describe spoilage dynamics, fermentation performance, laboratory culture behaviour, and environmental responses across taxa and conditions \citep{Zwietering1990}. A useful growth model should therefore provide both a good statistical fit and a biologically interpretable representation of observed dynamics.
 
 Several mathematical models have been used to describe sigmoidal growth. The logistic equation is a classic density-dependent model in which growth slows as population size approaches an upper asymptote \citep{Verhulst1838}. The Gompertz model is another sigmoidal form that is often more asymmetric and has been widely used in microbial growth studies \citep{Gompertz1825,Zwietering1990}. Because these models differ in flexibility and shape, they can lead to different conclusions when fitted to empirical data. Model comparison is therefore not only a descriptive exercise, but also a way to evaluate alternative biological hypotheses about how growth unfolds through time \citep{JohnsonOmland2004}.
 
 Here I ask which of two common sigmoidal growth models, logistic or Gompertz, better describes an empirical dataset of microbial population growth curves collected across many species and experimental conditions. Specifically, I ask: (1) how often each model provides the best fit across curves; (2) whether model preference varies across temperatures; and (3) what kinds of curve shapes are poorly captured by both models.
 
-%========================
 % Methods
-%========================
 \section{Methods}
 
 \subsection{Data}
@@ -118,9 +121,7 @@ The final reproducible workflow combined Python, bash, Git, and \LaTeX. The work
 
 Within Python, \texttt{pandas} was used for tabular data handling, \texttt{NumPy} for numerical operations, \texttt{SciPy} for non-linear optimisation, and \texttt{matplotlib} for plotting. Bash and shell commands were used to execute the workflow and compile the final \LaTeX{} report from the command line. Git was used for version control and project organisation. The report itself was written in \LaTeX{}, and references were managed with BibTeX. Although R was covered in the course and considered during project planning, it was not used in the final workflow because the analysis was intentionally kept within a single-language Python pipeline for clarity, consistency, and reproducibility.
 
-%========================
 % Results
-%========================
 \section{Results}
 
 \subsection{Data overview}
@@ -192,9 +193,7 @@ Temperature-specific comparisons also suggested that model preference was contex
     \label{fig:besttemp}
 \end{figure}
 
-%========================
 % Discussion
-%========================
 \section{Discussion}
 
 Here I asked whether logistic or Gompertz growth models better described a diverse empirical dataset of microbial growth curves. Across 297 fitted curves, the logistic model was selected more often than the Gompertz model, although the difference was not overwhelming. This indicates that logistic growth provided the more robust general-purpose description of the dataset, while Gompertz remained a plausible alternative for many curves.
@@ -209,9 +208,7 @@ There are several limitations to this analysis. First, the dataset combined curv
 
 Overall, this project shows that logistic models more often outperform Gompertz models for this empirical microbial growth dataset, but that model choice remains context dependent. The strongest general conclusion is that simple sigmoidal models work well for many microbial growth curves, yet become inadequate when trajectories include decline or more complex phase structure. Future work should therefore compare a wider range of mechanistic and phenomenological growth models, especially for datasets that contain extended lag phases or post-peak decreases.
 
-%========================
 % References
-%========================
 \bibliography{references}
 
 \end{document}
