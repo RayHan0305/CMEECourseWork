@@ -1,0 +1,17 @@
+metric,value
+n_rows_cleaned,4262
+n_curves,297
+n_species,45
+n_temperatures,17
+n_media,18
+time_units,Hours
+popbio_units,"CFU, DryWeight, N, OD_595"
+time_summary,"n=4262, mean=246.444, sd=733.008, min=0.000, max=13608.784"
+popbio_summary,"n=4262, mean=23813220.037, sd=228081080.066, min=0.000, max=7701034689.094"
+curve_points_summary,"n=297, mean=14.350, sd=13.171, min=5.000, max=151.000"
+n_curve_fit_attempts,297.0
+n_successfully_compared_curves,297.0
+best_model_count_logistic,176.0
+best_model_count_gompertz,121.0
+success_rate_gompertz,1.0
+success_rate_logistic,0.9966

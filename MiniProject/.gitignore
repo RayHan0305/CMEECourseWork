@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.idea/
+
+code/population_growth_test.ipynb
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
