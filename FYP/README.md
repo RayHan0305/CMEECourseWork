@@ -36,3 +36,8 @@ Raw MalariaGEN genomic data are not redistributed in this repository.
 ## Reproducibility
 
 The notebook was designed for Google Colab. Long-running FST calculations use checkpoint files to reduce memory use and allow interrupted analyses to resume.
+
+## Author
+Ruixuan Han  
+Imperial College London  
+rh925@ic.ac.uk
