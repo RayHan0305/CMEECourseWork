@@ -1,0 +1,8 @@
+pandas==2.2.2
+numpy
+matplotlib
+scipy
+statsmodels
+scikit-allel
+# Genotype-level rerun only, with Python <3.13:
+# malariagen_data>=15,<16

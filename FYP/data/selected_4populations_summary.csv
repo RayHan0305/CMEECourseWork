@@ -1,0 +1,5 @@
+Population_ID,Short_ID,Country,Location,Year,Taxon,Sex_call,N_individuals,Sample_query,Pass_minN50
+Nigeria_Gombe,NG_Gombe,Nigeria,Gombe,2022,coluzzii,F,57,taxon == 'coluzzii' and year == 2022 and sex_call == 'F' and country == 'Nigeria' and location == 'Gombe',True
+BurkinaFaso_BanaVillage,BF_BanaVil,Burkina Faso,Bana Village,2022,coluzzii,F,120,taxon == 'coluzzii' and year == 2022 and sex_call == 'F' and country == 'Burkina Faso' and location == 'Bana Village',True
+Guinea_Siguiri_Dankakoro,GN_Siguiri,Guinea,Siguiri_Dankakoro,2022,coluzzii,F,81,taxon == 'coluzzii' and year == 2022 and sex_call == 'F' and country == 'Guinea' and location == 'Siguiri_Dankakoro',True
+Mali_Faladje,ML_Faladje,Mali,Faladje,2022,coluzzii,F,75,taxon == 'coluzzii' and year == 2022 and sex_call == 'F' and country == 'Mali' and location == 'Faladje',True

@@ -1,0 +1,17 @@
+Pair_ID,Pair_label,Nigeria_status,Contig,Site_class,Cluster_ID,N_windows,Cluster_start_POS,Cluster_end_POS,Max_FST,Max_FST_excess
+BurkinaFaso_BanaVillage_vs_Guinea_Siguiri_Dankakoro,BF_BanaVil vs GN_Siguiri,Without Nigeria,X,0-fold,1,2,8393109,10393108,0.013081620214665,0.01255929031650245
+BurkinaFaso_BanaVillage_vs_Guinea_Siguiri_Dankakoro,BF_BanaVil vs GN_Siguiri,Without Nigeria,X,4-fold,1,2,8393109,10393108,0.0081173738199912,0.0081173738199912
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,3R,0-fold,1,4,31200685,36200684,0.0008872800352832,0.0008548514055966882
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,3R,0-fold,2,3,43200685,47200684,0.0015412186937861,0.0015087900640995881
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,3R,4-fold,1,5,32200685,37200684,0.0011482561582479,0.001144652260888298
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,3R,4-fold,2,4,41200685,45200684,0.0003303188168994,0.0003267149195397979
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,3R,4-fold,3,2,49200685,52200684,0.0005041029129544,0.0005004990155947979
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,X,0-fold,1,3,8393109,12393108,0.0111048736965144,0.010886528873101299
+BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,Without Nigeria,X,4-fold,1,2,8393109,10393108,0.0070122058105339,0.0070122058105339
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,3R,0-fold,1,4,31200685,36200684,0.0015257520120015,0.0015237916692494343
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,3R,0-fold,2,2,39200685,42200684,0.0015388383340695,0.0015368779913174343
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,3R,0-fold,3,3,44200685,47200684,0.0004605968096854,0.00045863646693333434
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,3R,0-fold,4,3,49200685,53200684,0.0005012480529087,0.0004992877101566343
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,X,4-fold,1,2,11393109,13393108,0.0009341228770037,0.0008859672841832009
+Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,Without Nigeria,X,4-fold,2,2,20393109,22393108,0.0025930848521487,0.002544929259328201
+Nigeria_Gombe_vs_Mali_Faladje,NG_Gombe vs ML_Faladje,With Nigeria_Gombe,X,4-fold,1,2,18393109,21393108,0.0069001442617087,0.005719679787988751

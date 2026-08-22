@@ -1,0 +1,13 @@
+Comparison_group,Pair_ID,Pair_label,Site_class,Mean_FST_X_peak,Max_FST_X_peak,N_windows_X_peak,Mean_FST_3R_distal,Max_FST_3R_distal,N_windows_3R_distal
+With Nigeria,Nigeria_Gombe_vs_BurkinaFaso_BanaVillage,NG_Gombe vs BF_BanaVil,0-fold,0.19154651318501204,0.2008783952759735,2,0.0493537621317644,0.0493537621317644,1
+With Nigeria,Nigeria_Gombe_vs_BurkinaFaso_BanaVillage,NG_Gombe vs BF_BanaVil,4-fold,0.1384070718116318,0.1593170788148027,2,0.0704638363028301,0.0704638363028301,1
+With Nigeria,Nigeria_Gombe_vs_Guinea_Siguiri_Dankakoro,NG_Gombe vs GN_Siguiri,0-fold,0.19103515361057138,0.2009412562247824,2,0.062223381077445,0.062223381077445,1
+With Nigeria,Nigeria_Gombe_vs_Guinea_Siguiri_Dankakoro,NG_Gombe vs GN_Siguiri,4-fold,0.1292652897247415,0.1534064939612437,2,0.0816405990494552,0.0816405990494552,1
+With Nigeria,Nigeria_Gombe_vs_Mali_Faladje,NG_Gombe vs ML_Faladje,0-fold,0.16551391000127041,0.173173257262577,2,0.0551989504301694,0.0551989504301694,1
+With Nigeria,Nigeria_Gombe_vs_Mali_Faladje,NG_Gombe vs ML_Faladje,4-fold,0.1260486448135863,0.1491242519971759,2,0.077276995970456,0.077276995970456,1
+Without Nigeria,BurkinaFaso_BanaVillage_vs_Guinea_Siguiri_Dankakoro,BF_BanaVil vs GN_Siguiri,0-fold,0.0009195681894034,0.0018391363788068,2,0.0016748395130472,0.0016748395130472,1
+Without Nigeria,BurkinaFaso_BanaVillage_vs_Guinea_Siguiri_Dankakoro,BF_BanaVil vs GN_Siguiri,4-fold,0.0014292039619237,0.0028584079238474,2,0.0016848738085999,0.0016848738085999,1
+Without Nigeria,BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,0-fold,0.0014966768725258,0.0018658469464928,2,0.0,0.0,1
+Without Nigeria,BurkinaFaso_BanaVillage_vs_Mali_Faladje,BF_BanaVil vs ML_Faladje,4-fold,0.0016188018217303999,0.0019271292614401,2,0.0001110535351978,0.0001110535351978,1
+Without Nigeria,Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,0-fold,0.00011148939840405,0.0002229787968081,2,0.0,0.0,1
+Without Nigeria,Guinea_Siguiri_Dankakoro_vs_Mali_Faladje,GN_Siguiri vs ML_Faladje,4-fold,0.0,0.0,2,0.0,0.0,1
