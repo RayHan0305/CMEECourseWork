@@ -1,0 +1,8 @@
+Check,Pass
+Six population pairs,True
+Three Nigeria-containing pairs,True
+Three non-Nigeria pairs,True
+Dataset A has four windows in each pair,True
+Dataset B excludes Dataset A from X,True
+3R is not focal-region filtered,True
+Verified site-count columns present,True
